@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Завдання 4.2</title>
+      <style>
+         body {
+            background-image: url(./Img/1.png);
+            background-size: cover;
+            background-position: center top;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding-top: 50px;
+            font-family: 'Lato', serif;
+         }
+         marquee {
+            height: 70%;;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 2px 2px 5px rgba(0, 0, 0, 1);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            text-align: center;
+            padding: 10px;
+            backdrop-filter: blur(2px) ;
+         }
+         video{
+            width: 100%;
+         
+         }
+         img{
+            width: 100%;
+         }
+   </style>
+</head>
+<body>
+     <marquee behavior="alternate" direction="up" height="300" width="140" style="background-color: rgba(10, 20, 50, 0.6); color: #00FFFF;">
+        <video src="./Video/2.mp4" autoplay> 
+        </video>
+        <br> Флiнс у лампі
+     </marquee>
+
+     <marquee behavior="scroll" direction="up" height="300" width="140" style="background-color: rgba(5, 5, 20, 0.7); color: #ADD8E6;">
+        <img src="./Img/2.png"> 
+        </img> 
+        <br> Відьма
+     </marquee>
+
+    <marquee behavior="slide" direction="down" height="300" width="140" style="background-color: rgba(0, 10, 30, 0.5); color: #F0F8FF;">
+        <img src="./Img/3.png"> 
+        </img>
+        <br> На луні
+     </marquee>
+
+     <marquee scrolldelay="30" direction="up" height="300" width="140" style="background-color: rgba(20, 40, 80, 0.6); color: #00E5FF;">
+        <img src="./Img/4.png"> 
+        </img>
+        <br> Друзі
+     </marquee>
+
+     <marquee scrolldelay="350" direction="up" height="300" width="140" style="background-color: rgba(5, 10, 15, 0.8); color: #B0E0E6;">
+        <img src="Img/1.png">
+        </img>
+      <br> Коломбина Гипоселениа <br> 
+     </marquee>
+</body>
+</html>

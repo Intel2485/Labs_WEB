@@ -1,0 +1,78 @@
+body {
+    background-color: #1a1a1a; 
+    color: #d8d8d8;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    margin: 30px;
+}
+
+.wot-table {
+    width: 60%;
+    border-collapse: separate;
+    border-spacing: 3px; 
+    border: 4px double #666666;
+    background-color: rgba(25, 25, 25, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+.wot-table th, .wot-table td {
+    padding: 10px;
+    border: 1px solid #3a3a3a;
+    vertical-align: middle;
+}
+
+.wot-table th {
+    background-color: #111111;
+    color: #ffaa00;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.tank-img {
+    height: 90px; 
+    width: auto;
+    border-radius: 3px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+    transition: transform 0.2s ease-in-out;
+}
+
+.tank-img:hover {
+    transform: scale(1.20);
+    cursor: crosshair; 
+}
+
+.wot-table tr:hover td {
+    background-color: #333333;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.wot-table caption {
+    padding-bottom: 15px; 
+}
+
+.battle-btn {
+    background-color: #8b2b00;
+    color: #ffffff;
+    border: 2px solid #ff4500; 
+    padding: 12px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px; 
+    cursor: pointer;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px #000000; 
+    transition: all 0.3s ease;
+}
+
+.battle-btn:hover {
+    background-color: #ff4500;
+    box-shadow: 0 0 15px #ff4500, 0 0 30px rgba(255, 69, 0, 0.6); 
+}
+
+.battle-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 5px #ff4500;
+}

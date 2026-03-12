@@ -1,0 +1,51 @@
+body {
+    background-image: url('../Img/Berserk.png');
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding-top: 60px;
+}
+
+.berserk-table {
+    width: 75%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.8); 
+    box-shadow: 0px 0px 20px rgba(134, 49, 47, 0.6);
+}
+
+caption {
+    font-size: 28px;
+    font-weight: bold;
+    color: #cc0000;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #000000;
+}
+
+th, td {
+    border: 1px solid #555555;
+    padding: 15px;
+}
+
+th {
+    background-color: rgba(150, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.col-left {
+    width: 25%;
+    text-align: left;
+}
+
+.col-right {
+    width: 75%;
+    text-align: right;
+}
+
+tr:hover td {
+    background-color: rgba(200, 0, 0, 0.3);
+}

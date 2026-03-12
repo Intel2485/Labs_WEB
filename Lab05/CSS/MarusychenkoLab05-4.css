@@ -1,0 +1,56 @@
+body {
+    background-image: url('../Img/MonsterAR.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 30px;
+}
+
+.intro-text {
+    width: 35%;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    line-height: 1.5;
+    border-left: 4px solid #88ff00;
+}
+
+.energy-table {
+    float: right; 
+    width: 60%;
+    border-collapse: separate;
+    border-spacing: 3px; 
+    border: 4px double #88ff00; 
+    background-color: rgba(15, 15, 15, 0.85); 
+    box-shadow: 0 0 20px rgba(136, 255, 0, 0.2);
+}
+
+.energy-table th, .energy-table td {
+    padding: 10px; 
+    border: 1px solid #333;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.energy-table th {
+    background-color: rgba(136, 255, 0, 0.2);
+    color: #88ff00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.energy-table img {
+    height: 120px;
+    width: auto;
+    border-radius: 5px;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); 
+}
+
+.energy-table tr:hover td {
+    background-color: rgba(136, 255, 0, 0.1);
+    transition: 0.3s;
+}
