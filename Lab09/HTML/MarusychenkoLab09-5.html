@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Навігаційна карта</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab09-4.css">
+</head>
+<body>
+
+     <div class="container">
+        <h1>Гра з другом</h1>
+        
+        <div class="image-wrapper">
+            <img src="../img/World of Tanks Screenshot 2025.12.20 - 00.46.39.58.png" alt="Скрін" usemap="#carsMap" id="carsImage">
+            
+        </div>
+
+        <map name="carsMap">
+            <area shape="poly" coords="920,606, 1113,650, 1016,735, 829,661" 
+                  data-name="Ч" 
+                  data-history="Я, граю з другом в World of tanks" data-color="#424242">
+        
+        <map name="carsMap">
+            <area shape="poly" coords="829,661, 787,672, 960,726, 822,826" 
+                  data-name="Друн" 
+                  data-history="Дуже хороший гравець, з непоганою статистикою акаунта" data-color="#2979FF">
+
+        <map name="carsMap">
+            <area shape="poly" coords="1141,644, 1501,747, 1501,1098, 243,1098" 
+                  data-name="Крига" 
+                  data-history="Міцна гора з криги, навіть танки по ній пересуваються" data-color="#0088ff">
+
+        <map name="carsMap">
+            <area shape="poly" coords="33,884, 230,886, 226,1106, 37,1107" 
+                  data-name="Інформаційна парнель" 
+                  data-history="Показує функціональний стан вашого танку, досить корисна в бою" data-color="#424242">
+
+        <map name="carsMap">
+            <area shape="poly" coords="1510,705, 1867,703, 1868,1107, 1517,1105" 
+                  data-name="Мапа" 
+                  data-history="Допомагає визначити місцеположення ворога та показує місцевість" data-color="#c1bea4">
+
+        <script src="../JS/MarusychenkoLab09-4.js"></script>
+    <div id="customTooltip" class="tooltip">
+                <h3 id="tt-title">Назва авто</h3>
+                <p id="tt-desc">Історія авто...</p>
+   </div>
+</body>
+</html>

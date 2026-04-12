@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. Freedom Registration</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab11-6.css">
+</head>
+<body>
+
+    <div class="usa-container">
+    <div class="usa-header">
+        <div class="seal">★ ★ ★</div>
+        <h2>OFFICIAL REGISTRATION FORM</h2>
+        <p>United States Diversity Visa Program Simulation</p>
+    </div>
+
+    <form action="MarusychenkoLab11-00.html" method="get" target="_self">
+        <fieldset>
+            <legend>Особиста інформація</legend>
+            <div class="input-row">
+                <input type="text" name="surname" placeholder="Прізвище" required>
+                <input type="text" name="firstname" placeholder="Ім'я" required>
+                <input type="text" name="patronymic" placeholder="По-батькові">
+            </div>
+            <div class="input-row">
+                <label>Пароль доступу:</label>
+                <input type="password" name="pwd" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Місце проживання та контактні дані</legend>
+            <div class="input-row">
+                <label>Держава проживання:</label>
+                <select name="country" required>
+                    <option value="">-- Оберіть країну --</option>
+                    <option value="ua">Україна</option>
+                    <option value="us">США</option>
+                    <option value="pl">Польща</option>
+                    <option value="de">Німеччина</option>
+                    <option value="uk">Велика Британія</option>
+                    <option value="ca">Канада</option>
+                    <option value="fr">Франція</option>
+                    <option value="it">Італія</option>
+                    <option value="es">Іспанія</option>
+                    <option value="jp">Японія</option>
+                </select>
+            </div>
+
+            <div class="input-row">
+                <input type="text" name="street" placeholder="Вулиця" required>
+                <input type="text" name="house" placeholder="Будинок" size="5">
+                <input type="text" name="zip" placeholder="Поштовий індекс" maxlength="5" id="zip_code">
+            </div>
+
+            <p>Тип житла (радіокнопки):</p>
+            <div class="grid-options">
+                <label><input type="radio" name="residence" value="apt"> Квартира</label>
+                <label><input type="radio" name="residence" value="house"> Приватний будинок</label>
+                <label><input type="radio" name="residence" value="dorm"> Гуртожиток</label>
+                <label><input type="radio" name="residence" value="cottage"> Котедж</label>
+                <label><input type="radio" name="residence" value="townhouse"> Таунхаус</label>
+                <label><input type="radio" name="residence" value="hotel"> Готель</label>
+                <label><input type="radio" name="residence" value="guest"> Гостьовий будинок</label>
+                <label><input type="radio" name="residence" value="modular"> Модульний будинок</label>
+                <label><input type="radio" name="residence" value="trailer"> Трейлер</label>
+                <label><input type="radio" name="residence" value="other" checked> Інше</label>
+            </div>
+
+            <div class="input-row">
+                <label>Електронна адреса:</label>
+                <input type="email" name="email" placeholder="example@mail.com" required>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Додаткові дані</legend>
+            <p>Ваші захоплення (множинний вибір):</p>
+            <div class="grid-options">
+                <label><input type="checkbox" name="hobby" value="pc"> Збірка ПК</label>
+                <label><input type="checkbox" name="hobby" value="cars"> Гіперкари</label>
+                <label><input type="checkbox" name="hobby" value="sim"> Симрейсинг</label>
+                <label><input type="checkbox" name="hobby" value="web"> Веб-розробка</label>
+                <label><input type="checkbox" name="hobby" value="manga"> Манга/Аніме</label>
+                <label><input type="checkbox" name="hobby" value="ai"> Локальний ШІ</label>
+                <label><input type="checkbox" name="hobby" value="gaming"> Геймінг</label>
+                <label><input type="checkbox" name="hobby" value="reading"> Читання</label>
+                <label><input type="checkbox" name="hobby" value="travel"> Подорожі</label>
+                <label><input type="checkbox" name="hobby" value="photo"> Фотографія</label>
+            </div>
+
+            <p>Якими мовами володієте:</p>
+            <div class="flex-options">
+                <label><input type="checkbox" name="lang" value="ua"> Українська</label>
+                <label><input type="checkbox" name="lang" value="en"> Англійська</label>
+                <label><input type="checkbox" name="lang" value="de"> Німецька</label>
+                <label><input type="checkbox" name="lang" value="pl"> Польська</label>
+                <label><input type="checkbox" name="lang" value="jp"> Японська</label>
+            </div>
+
+            <p>Ваші побажання (текстова область):</p>
+            <textarea name="wishes" rows="4"></textarea>
+        </fieldset>
+
+        <div class="form-buttons">
+            <input type="reset" value="СКАСУВАТИ ТА ОЧИСТИТИ">
+            <input type="submit" value="ВІДПРАВИТИ НА РОЗГЛЯД">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+        background-color: #fdf8f5;
+        color: #333;
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 30px 40px;
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+        color: #d35400;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    h3 {
+        color: #7f8c8d;
+        text-align: center;
+        font-size: 16px;
+        font-weight: normal;
+        border-bottom: 2px solid #fae5d3;
+        padding-bottom: 15px;
+    }
+
+    body > ul {
+        padding-left: 20px;
+    }
+
+    body > ul > li {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #8e44ad;
+        margin-top: 25px;
+    }
+
+    body > ul > li > ul {
+        padding-left: 0;
+        margin-top: 15px;
+        list-style-type: none;
+    }
+
+    body > ul > li > ul > li {
+        display: flex;
+        align-items: center;
+        background-color: #fcfefe;
+        padding: 10px 15px;
+        margin-bottom: 22px;
+        border-radius: 10px;
+        border: 1px solid #fdedec;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body > ul > li > ul > li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .flower-img {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+        border: 2px solid #fadbd8;
+        transition: transform 0.4s ease;
+    }
+
+    body > ul > li > ul > li:hover .flower-img {
+        transform: scale(1.15) rotate(-5deg); 
+    }
+
+    .flower-link {
+        font-size: 18px;
+        color: #2c3e50;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .flower-link:hover {
+        color: #27ae60;
+        text-decoration: underline;
+    }

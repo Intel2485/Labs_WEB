@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab11-3.css">
+</head>
+<body>
+   
+    <div class="form-container">
+    <form action="./MarusychenkoLab11-00.html" method="post">
+        
+        <table class="anketa-table">
+            
+            <tr>
+                <td colspan="3" class="title-cell">
+                    <h1>Анкета</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">1.</td>
+                <td class="label-cell">Прізвище</td>
+                <td class="input-cell"><input type="text" name="surname" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">2.</td>
+                <td class="label-cell">Ім'я, по батькові</td>
+                <td class="input-cell"><input type="text" name="name_patronymic" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">3.</td>
+                <td class="label-cell">Число і рік народження</td>
+                <td class="input-cell"><input type="text" name="birth_date" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">4.</td>
+                <td class="label-cell">Домашня адреса</td>
+                <td class="input-cell"><input type="text" name="address" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">5.</td>
+                <td class="label-cell">Місце навчання (роботи)</td>
+                <td class="input-cell"><input type="text" name="workplace" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">6.</td>
+                <td class="label-cell">Домашній (робочий) телефон</td>
+                <td class="input-cell"><input type="text" name="phone" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell">7.</td>
+                <td class="label-cell">E-mail</td>
+                <td class="input-cell"><input type="email" name="email" class="text-input"></td>
+            </tr>
+
+            <tr>
+                <td class="num-cell valign-top">8.</td>
+                <td class="label-cell valign-top">Область наукових інтересів</td>
+                <td class="input-cell">
+                    <div class="interests-list">
+                        1. <input type="text" name="interest_1" class="interest-input"><br>
+                        2. <input type="text" name="interest_2" class="interest-input"><br>
+                        3. <input type="text" name="interest_3" class="interest-input"><br>
+                        4. <input type="text" name="interest_4" class="interest-input"><br>
+                        5. <input type="text" name="interest_5" class="interest-input"><br>
+                        6. <input type="text" name="interest_6" class="interest-input">
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" class="buttons-cell">
+                    <input type="reset" value="Відмінити введення" class="btn-reset">
+                    <br><br>
+                    <input type="submit" value="Надіслати дані та перейти до 2 етапу реєстрації" class="btn-submit" href="./MarusychenkoLab11-00.html">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

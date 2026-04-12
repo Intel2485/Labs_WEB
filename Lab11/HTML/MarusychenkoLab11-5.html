@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEALOUS_CASTING</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab11-5.css">
+</head>
+<body>
+
+    <div class="bg-blur"></div>
+
+    <audio id="glitch-sound" src="../sound/ceeb9f7438c8bcc.mp3" preload="auto"></audio>
+
+    <div class="opium-wrapper">
+        <header>
+            <h1 class="glitch" data-text="JEALOUS_CASTING">JEALOUS_CASTING</h1>
+            <p>Underground label access // enter your data</p>
+        </header>
+
+        <form action="MarusychenkoLab11-00.html" method="get" class="vamp-form">
+            
+            <div class="input-row">
+                <div class="input-block">
+                    <label>REAL NAME (Ім'я)</label>
+                    <input type="text" name="first_name" placeholder="Name..." required>
+                </div>
+                <div class="input-block">
+                    <label>LAST NAME (Прізвище)</label>
+                    <input type="text" name="last_name" placeholder="Surname..." required>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>SECRET PASSCODE (Пароль)</label>
+                <input type="password" name="entry_pass" placeholder="***" required>
+            </div>
+
+            <div class="input-block">
+                <label>WHO ARE YOU? (Твоя роль)</label>
+                <div class="radio-group">
+                    <label class="radio-item">
+                        <input type="radio" name="role" value="Artist" checked>
+                        <span>Artist</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="role" value="Producer">
+                        <span>Producer</span>
+                    </label>
+                    <label class="radio-item">
+                        <input type="radio" name="role" value="Listener">
+                        <span>Just flexin'</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-block">
+                <label>YOUR SOUND (Жанр)</label>
+                <select name="genre" class="vamp-select">
+                    <option value="opium">Opium Core</option>
+                    <option value="trap_metal">Trap Metal</option>
+                    <option value="hyperpop">Hyperpop / Glitchcore</option>
+                    <option value="pluggnb">PluggNB</option>
+                    <option value="rage">Rage</option>
+                </select>
+            </div>
+
+            <div class="input-block">
+                <label>DROP YOUR LINKS & INFO (Про себе)</label>
+                <textarea name="bio" rows="4" placeholder="Soundcloud / Inst / Why we should let you in..."></textarea>
+            </div>
+
+            <div class="input-block">
+                <label>RULES & ACCESS (Умови)</label>
+                <div class="checkbox-group">
+                    <label class="check-item">
+                        <input type="checkbox" name="condition" value="no_cameras">
+                        <span>[ x ] NO CAMERAS (Згоден здати телефон)</span>
+                    </label>
+                    <label class="check-item">
+                        <input type="checkbox" name="condition" value="nda_sign">
+                        <span>[ x ] NDA SIGNED (Згоден на нерозголошення)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="reset" class="btn-reset">TRASH IT</button>
+                <button type="submit" class="btn-submit">ENTER THE CLUB</button>
+            </div>
+
+        </form>
+    </div>
+
+<script src="../JS/MarusychenkoLab11-5.js"></script>
+</body>
+</html>

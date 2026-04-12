@@ -20,19 +20,19 @@ body {
 caption {
     font-size: 28px;
     font-weight: bold;
-    color: #cc0000;
+    color: #c11212;
     margin-bottom: 15px;
     letter-spacing: 2px;
     text-shadow: 2px 2px 5px #000000;
 }
 
 th, td {
-    border: 1px solid #555555;
+    border: 1px solid #624c4c;
     padding: 15px;
 }
 
 th {
-    background-color: rgba(150, 0, 0, 0.5);
+    background-color: rgba(166, 5, 5, 0.5);
     color: #ffffff;
 }
 

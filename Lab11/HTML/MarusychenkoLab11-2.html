@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфігуратор ПК</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab11-2.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <main class="configurator">
+            <div class="header">
+                <h1>Конфігуратор збірки ПК</h1>
+                <p>Обери ідеальні комплектуючі для своїх задач</p>
+            </div>
+
+            <form id="pcForm" action="../HTML/MarusychenkoLab11-00.html" method="post">
+                
+                <section class="config-step">
+                    <h2>1. Платформа (CPU)</h2>
+                    
+                    <div class="brand-selector">
+                        <input type="radio" name="cpu_brand" id="intel" value="Intel" checked>
+                        <label for="intel" class="brand-btn intel-btn">Intel</label>
+                        
+                        <input type="radio" name="cpu_brand" id="amd" value="AMD">
+                        <label for="amd" class="brand-btn amd-btn">AMD</label>
+                    </div>
+
+                    <div class="dynamic-logo">
+                        <img id="cpu_img" src="../img/Intel.webp" alt="CPU Brand">
+                    </div>
+
+                    <div id="intel_models" class="component-list">
+                        <label class="item-card"><input type="radio" name="cpu" value="Core i5-13400F" data-price="8500" checked> <span>Core i5-13400F</span></label>
+                        <label class="item-card"><input type="radio" name="cpu" value="Core i5-13600KF" data-price="12400"> <span>Core i5-13600KF</span></label>
+                        <label class="item-card"><input type="radio" name="cpu" value="Core i7-14700K" data-price="18900"> <span>Core i7-14700K</span></label>
+                        <label class="item-card"><input type="radio" name="cpu" value="Core i7-14700K" data-price="18900"> <span>Core i7-14700K</span></label>
+                    </div>
+
+                    <div id="amd_models" class="component-list hidden">
+                        <label class="item-card"><input type="radio" name="cpu" value="Ryzen 5 7600X" data-price="9200"> <span>Ryzen 5 7600X</span></label>
+                        <label class="item-card"><input type="radio" name="cpu" value="Ryzen 7 7800X3D" data-price="16500"> <span>Ryzen 7 7800X3D</span></label>
+                        <label class="item-card"><input type="radio" name="cpu" value="Ryzen 9 7950X" data-price="24000"> <span>Ryzen 9 7950X</span></label>
+                    </div>
+                </section>
+
+                <section class="config-step">
+                    <h2>2. Графіка (GPU)</h2>
+                    
+                    <div class="brand-selector">
+                        <input type="radio" name="gpu_brand" id="nvidia" value="NVIDIA" checked>
+                        <label for="nvidia" class="brand-btn nvidia-btn">NVIDIA</label>
+                        
+                        <input type="radio" name="gpu_brand" id="radeon" value="RADEON">
+                        <label for="radeon" class="brand-btn radeon-btn">RADEON</label>
+                    </div>
+
+                    <div class="dynamic-logo">
+                        <img id="gpu_img" src="../img/nvidia.png" alt="GPU Brand">
+                    </div>
+
+                    <div id="nvidia_models" class="component-list">
+                        <label class="item-card"><input type="radio" name="gpu" value="RTX 4060 8GB" data-price="13500" checked> <span>RTX 4060 8GB</span></label>
+                        <label class="item-card"><input type="radio" name="gpu" value="RTX 4070 Super 12GB" data-price="27000"> <span>RTX 4070 Super</span></label>
+                        <label class="item-card"><input type="radio" name="gpu" value="RTX 4090 24GB" data-price="85000"> <span>RTX 4090 24GB</span></label>
+                    </div>
+
+                    <div id="radeon_models" class="component-list hidden">
+                        <label class="item-card"><input type="radio" name="gpu" value="RX 7600 8GB" data-price="11500"> <span>RX 7600 8GB</span></label>
+                        <label class="item-card"><input type="radio" name="gpu" value="RX 7800 XT 16GB" data-price="23000"> <span>RX 7800 XT 16GB</span></label>
+                        <label class="item-card"><input type="radio" name="gpu" value="RX 7900 XTX 24GB" data-price="42000"> <span>RX 7900 XTX 24GB</span></label>
+                    </div>
+                </section>
+
+                <section class="config-step">
+                    <h2>3. Основа та Пам'ять</h2>
+                    
+                    <p>Материнська плата (SELECT):
+                        <select name="motherboard" id="motherboard" class="custom-select">
+                            <option value="B760 / B650 (Standard)" data-price="6000">B760 / B650 (Стандарт)</option>
+                            <option value="Z790 / X670 (Overclock)" data-price="12000">Z790 / X670 (Для розгону)</option>
+                        </select>
+                    </p>
+
+                    <p>Оперативна пам'ять DDR5 (SELECT):
+                        <select name="ram" id="ram" class="custom-select">
+                            <option value="16GB (2x8) 5200MHz" data-price="2500">16GB (2x8) 5200MHz</option>
+                            <option value="32GB (2x16) 6000MHz" data-price="4800" selected>32GB (2x16) 6000MHz</option>
+                            <option value="64GB (2x32) 6400MHz" data-price="9000">64GB (2x32) 6400MHz</option>
+                        </select>
+                    </p>
+
+                    <p>Накопичувачі (CHECKBOX - можна декілька):<br>
+                        <label class="check-row"><input type="checkbox" name="storage" value="1TB SSD M.2" data-price="2800" checked> 1TB M.2 NVMe SSD (Система)</label>
+                        <label class="check-row"><input type="checkbox" name="storage" value="2TB SSD M.2" data-price="5200"> 2TB M.2 NVMe SSD (Ігри)</label>
+                        <label class="check-row"><input type="checkbox" name="storage" value="4TB HDD" data-price="3500"> 4TB HDD (Архів)</label>
+                    </p>
+                </section>
+
+                <section class="config-step form-details">
+                    <h2>4. Дані замовника</h2>
+                    
+                    <div class="input-group">
+                        <input type="text" name="client_name" id="client_name" placeholder="Ваше ім'я (Позивний)" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="cabinet_pwd" placeholder="Пароль для кабінету клієнта">
+                    </div>
+                    <div class="input-group">
+                        <textarea name="comment" id="comment" rows="3" placeholder="Побажання до збірки (кабель-менеджмент, колір корпусу...)" wrap="virtual"></textarea>
+                    </div>
+                    <div class="input-group file-group">
+                        <label>Референс (фото корпусу):</label>
+                        <input type="file" name="ref_file" accept=".jpg, .jpeg, .png">
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="button" value="ЧАС" onclick="alert(Date());" class="btn secondary">
+                        <input type="reset" value="ОЧИСТИТИ" class="btn warning">
+                        <input type="submit" value="ПІДТВЕРДИТИ" class="btn primary">
+                    </div>
+                </section>
+
+            </form>
+        </main>
+
+        <aside class="live-summary">
+            <div class="summary-box">
+                <h3>Ваша конфігурація</h3>
+                <ul id="summary_list">
+                    </ul>
+                <div class="total-price">
+                    <span>Разом:</span>
+                    <span id="total_sum">0</span> ₴
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="../JS/MarusychenkoLab11-2.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monobank</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab11-4.css">
+</head>
+<body>
+    <div class="mono-screen">
+    <div class="mono-card">
+        <div class="card-header">
+            <div class="mono-logo">mono</div>
+            <div class="order-title">Замовлення товару</div>
+        </div>
+
+        <form id="orderForm" action="./MarusychenkoLab11-00.html" method="get">
+            
+            <div class="mono-input-section">
+                <label>Номер банківського рахунку</label>
+                <input type="text" name="account" id="bank_account" placeholder="UA 00 0000 0000..." required maxlength="20">
+                <div id="char_counter_bank" class="counter">0 / 20</div>
+            </div>
+
+            <div class="mono-input-section">
+                <label>Особистий номер користувача (ID)</label>
+                <input type="text" name="user_id" id="user_id_input" placeholder="000000" required maxlength="6">
+                <div id="char_counter_user" class="counter">0 / 6</div>
+            </div>
+
+            <div class="mono-input-section">
+                <label>Виберіть товари (можна декілька)</label>
+                <select name="products" id="productSelect" multiple size="4" class="mono-select">
+                    <option value="GPU RTX 5090" data-price="85000">NVIDIA RTX 5090 24GB</option>
+                    <option value="Direct Drive Wheel" data-price="24000">Кермо Moza R9 DD</option>
+                    <option value="CPU Ryzen 7 7800X3D" data-price="16500">AMD Ryzen 7 7800X3D</option>
+                    <option value="Gaming Monitor 4K" data-price="32000">Монітор 32" 4K 144Hz</option>
+                    <option value="Berserk Deluxe Edition Volume 1 - 11" data-price="2500">Berserk Deluxe Edition Volume 1 - 11</option>
+                    <option value="Brabus 900 Supesblack" data-price="21000000">Brabus 900 Supesblack</option>
+                    <option value="sony c800g pac" data-price="850000">sony c800g pac</option>
+                    <option value="Fifine Ampli 3" data-price="4999">Fifine Ampli 3</option>
+                    <option value="Beyerdynamic DT 990 Pro/80 ohms Grey" data-price="7099">Beyerdynamic DT 990 Pro/80 ohms Grey</option>
+                </select>
+                <small>Утримуйте Ctrl для вибору декількох</small>
+            </div>
+
+            <div class="mono-radio-group">
+                <label class="radio-tile">
+                    <input type="radio" name="payment" value="Готівка" checked>
+                    <span class="radio-label">Готівка</span>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="payment" value="Безготівковий">
+                    <span class="radio-label">Карткою</span>
+                </label>
+            </div>
+
+            <div class="mono-checkbox-section">
+                <p>Бажаєте отримати при відповіді:</p>
+                <label class="mono-checkbox">
+                    <input type="checkbox" name="info_balance" value="Так">
+                    <span>Дані про залишки на рахунку</span>
+                </label>
+                <label class="mono-checkbox">
+                    <input type="checkbox" name="info_payments" value="Так">
+                    <span>Список останніх виплат</span>
+                </label>
+            </div>
+
+            <div class="mono-input-section">
+                <label>Коментар до замовлення</label>
+                <textarea name="comment" rows="2" placeholder="Напишіть нам щось..."></textarea>
+            </div>
+
+            <button type="submit" class="mono-btn">Підтвердити замовлення</button>
+        </form>
+    </div>
+</div>
+
+<script src="../JS/MarusychenkoLab11-4.js"></script>
+</body>
+</html>

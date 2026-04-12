@@ -1,0 +1,128 @@
+body {
+    background-color: #1b2838;
+    color: #c1d1db;
+    font-family: "Motiva Sans", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    margin: 0;
+}
+
+.steam-container {
+    background: linear-gradient(to bottom, #2a475e 0%, #1b2838 100%);
+    width: 100%;
+    max-width: 700px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.steam-header {
+    border-bottom: 1px solid #3d4450;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+
+.library-label {
+    color: #66c0f4;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 26px;
+    text-transform: uppercase;
+    margin: 5px 0 0 0;
+}
+
+.steam-section {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    color: #8f98a0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+input[type="text"], input[type="password"], textarea, .steam-select {
+    width: 100%;
+    background-color: #171a21;
+    border: 1px solid #000;
+    color: #fff;
+    padding: 12px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    border-color: #66c0f4;
+}
+
+.row { display: flex; gap: 30px; }
+.col { flex: 1; }
+
+/* Кастомні радіо та чекбокси */
+.steam-radio, .steam-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.steam-radio input, .steam-check input {
+    accent-color: #66c0f4;
+    margin-right: 12px;
+    transform: scale(1.2);
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Кнопки в стилі Steam */
+.steam-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-steam-blue, .btn-steam-gray {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-steam-blue {
+    background: linear-gradient(to right, #47bfff 0%, #1a44c2 100%);
+    color: #fff;
+}
+
+.btn-steam-blue:hover {
+    background: linear-gradient(to right, #66c0f4 0%, #1a44c2 100%);
+    box-shadow: 0 0 10px rgba(102, 192, 244, 0.4);
+}
+
+.btn-steam-gray {
+    background: #3d4450;
+    color: #d2d2d2;
+}
+
+.btn-steam-gray:hover { background: #4c5463; }

@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.bg-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../img/Jealous.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(15px) grayscale(80%) brightness(0.3);
+    z-index: -1;
+}
+
+.opium-wrapper {
+    background: rgba(10, 10, 10, 0.85);
+    border: 1px solid #333;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.glitch {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff0000;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(10px, 9999px, 31px, 0); }
+    20% { clip: rect(62px, 9999px, 13px, 0); }
+    40% { clip: rect(34px, 9999px, 81px, 0); }
+    60% { clip: rect(81px, 9999px, 4px, 0); }
+    80% { clip: rect(54px, 9999px, 51px, 0); }
+    100% { clip: rect(11px, 9999px, 92px, 0); }
+}
+@keyframes glitch-anim-2 {
+    0% { clip: rect(65px, 9999px, 100px, 0); }
+    20% { clip: rect(3px, 9999px, 40px, 0); }
+    40% { clip: rect(80px, 9999px, 12px, 0); }
+    60% { clip: rect(12px, 9999px, 90px, 0); }
+    80% { clip: rect(40px, 9999px, 60px, 0); }
+    100% { clip: rect(90px, 9999px, 20px, 0); }
+}
+
+header p {
+    color: #888;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.input-block {
+    margin-bottom: 25px;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+input[type="text"], input[type="password"], textarea, .vamp-select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #444;
+    color: #fff;
+    padding: 10px 5px;
+    font-family: inherit;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    outline: none;
+}
+
+input:focus, textarea:focus, .vamp-select:focus {
+    border-bottom-color: #900000;
+    background: rgba(255, 0, 0, 0.05);
+}
+
+.vamp-select option {
+    background-color: #050505; 
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.vamp-select {
+    color-scheme: dark; 
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-item, .check-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #888;
+    transition: 0.2s;
+}
+
+.radio-item:hover, .check-item:hover { color: #fff; }
+
+.radio-item input, .check-item input {
+    accent-color: #900000;
+    transform: scale(1.2);
+    margin-right: 12px;
+}
+
+/* Кнопки */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.btn-submit {
+    background: #fff;
+    color: #000;
+}
+
+.btn-submit:hover {
+    background: #900000;
+    color: #fff;
+    border-color: #900000;
+    box-shadow: 0 0 15px rgba(144, 0, 0, 0.6);
+}
+
+.btn-reset {
+    background: transparent;
+    color: #666;
+}
+
+.btn-reset:hover {
+    color: #fff;
+    border-color: #fff;
+}

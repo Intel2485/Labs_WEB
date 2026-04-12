@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Library - Questionnaire</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab11-7.css">
+</head>
+<body>
+
+    <div class="steam-container">
+    <header class="steam-header">
+        <div class="library-label">БІБЛІОТЕКА</div>
+        <h1>Анкета користувача віртуальної бібліотеки</h1>
+    </header>
+
+    <form id="libraryForm" action="MarusychenkoLab11-00.html" method="get" target="_self">
+        
+        <section class="steam-section">
+            <div class="input-group">
+                <label>ПРІЗВИЩЕ</label>
+                <input type="text" name="surname" required>
+            </div>
+            <div class="input-group">
+                <label>ІМ'Я</label>
+                <input type="text" name="firstname" required>
+            </div>
+            <div class="input-group">
+                <label>ПАРОЛЬ ДОСТУПУ</label>
+                <input type="password" name="user_pwd" required>
+            </div>
+        </section>
+
+        <section class="steam-section">
+            <div class="row">
+                <div class="col">
+                    <label>СТАТЬ</label>
+                    <div class="radio-group">
+                        <label class="steam-radio">
+                            <input type="radio" name="gender" value="male" checked>
+                            <span>Чоловіча</span>
+                        </label>
+                        <label class="steam-radio">
+                            <input type="radio" name="gender" value="female">
+                            <span>Жіноча</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <label>ВАШ ВІК</label>
+                    <div class="radio-group">
+                        <label class="steam-radio"><input type="radio" name="age" value="under18"> <span>До 18</span></label>
+                        <label class="steam-radio"><input type="radio" name="age" value="18-25" checked> <span>18 - 25</span></label>
+                        <label class="steam-radio"><input type="radio" name="age" value="26-35"> <span>26 - 35</span></label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="steam-section">
+            <label>ЧИМ ЗАЙМАЄТЕСЯ? (Оберіть один основний напрямок)</label>
+            <div class="checkbox-grid">
+                <label class="steam-check"><input type="checkbox" name="job" value="student" checked> <span>Студент Полтавської політехніки</span></label>
+                <label class="steam-check"><input type="checkbox" name="job" value="dev"> <span>Frontend Розробник</span></label>
+                <label class="steam-check"><input type="checkbox" name="job" value="gamer"> <span>Професійний Геймер</span></label>
+                <label class="steam-check"><input type="checkbox" name="job" value="engineer"> <span>Інженер комп'ютерних систем</span></label>
+                <label class="steam-check"><input type="checkbox" name="job" value="freelancer"> <span>Фрілансер</span></label>
+            </div>
+        </section>
+
+        <section class="steam-section">
+            <label>ЯКОЮ ТЕМАТИКОЮ ЦІКАВИТЕСЯ? (Ctrl + клік)</label>
+            <select name="topics" class="steam-select" multiple size="6">
+                <option value="arch">Архітектура комп'ютерів</option>
+                <option value="web">Веб-програмування та дизайн</option>
+                <option value="berserk">Манга: Berserk та Dark Fantasy</option>
+                <option value="sim">Автосимулятори та механіка</option>
+                <option value="hypercars">Інженерія гіперкарів</option>
+                <option value="ai">Штучний інтелект (Локальні моделі)</option>
+                <option value="history">Історія технологій</option>
+                <option value="networking">Мережеві технології</option>
+                <option value="electronics">Електроніка та схемотехніка</option>
+                <option value="scifi">Наукова фантастика</option>
+            </select>
+        </section>
+
+        <section class="steam-section">
+            <label>ЩО ЗАРАЗ ЧИТАЄТЕ?</label>
+            <textarea name="now_reading" rows="3" placeholder="Назва книги або серії манги..."></textarea>
+        </section>
+
+        <footer class="steam-footer">
+            <input type="reset" value="СКАСУВАТИ" class="btn-steam-gray">
+            <input type="submit" value="ВІДПРАВИТИ В БІБЛІОТЕКУ" class="btn-steam-blue">
+        </footer>
+    </form>
+</div>
+
+<script src="../JS/MarusychenkoLab11-7.js"></script>
+</body>
+</html>

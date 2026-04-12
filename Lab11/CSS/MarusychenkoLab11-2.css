@@ -1,0 +1,204 @@
+body {
+    background-color: #0f1115;
+    color: #e2e8f0;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.configurator {
+    flex: 1;
+    background: #181b21;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #2d333b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.header h1 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 28px;
+}
+.header p { color: #8b949e; margin-bottom: 30px; }
+
+.config-step {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2d333b;
+}
+.config-step h2 {
+    font-size: 18px;
+    color: #58a6ff;
+    margin-bottom: 20px;
+}
+
+.brand-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+.brand-selector input[type="radio"] { display: none; }
+
+.brand-btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    background: #21262d;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+input[id="intel"]:checked + .intel-btn {
+    background: rgba(0, 113, 197, 0.1);
+    border-color: #0071c5;
+    color: #66b3ff;
+    box-shadow: 0 0 15px rgba(0, 113, 197, 0.4);
+}
+input[id="amd"]:checked + .amd-btn,
+input[id="radeon"]:checked + .radeon-btn {
+    background: rgba(237, 28, 36, 0.1);
+    border-color: #ed1c24;
+    color: #ff6666;
+    box-shadow: 0 0 15px rgba(237, 28, 36, 0.4);
+}
+input[id="nvidia"]:checked + .nvidia-btn {
+    background: rgba(118, 185, 0, 0.1);
+    border-color: #76b900;
+    color: #a8ff2a;
+    box-shadow: 0 0 15px rgba(118, 185, 0, 0.4);
+}
+
+.dynamic-logo {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+    height: 60px;
+}
+.dynamic-logo img {
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.component-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hidden { display: none !important; }
+
+.item-card {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #21262d;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid #30363d;
+    transition: all 0.2s;
+}
+.item-card:hover {
+    transform: scale(1.02);
+    border-color: #58a6ff;
+}
+.item-card input[type="radio"] { margin-right: 15px; transform: scale(1.2); }
+
+.custom-select, .input-group input[type="text"], 
+.input-group input[type="password"], .input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background: #0f1115;
+    border: 1px solid #30363d;
+    color: #e2e8f0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+.custom-select:focus, .input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+}
+
+.check-row {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.check-row input { transform: scale(1.2); margin-right: 10px; }
+
+.form-actions { display: flex; gap: 10px; }
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.btn.primary { background: #58a6ff; color: #000; }
+.btn.primary:hover { background: #318bf0; transform: translateY(-2px); }
+.btn.secondary { background: #21262d; color: #c9d1d9; }
+.btn.secondary:hover { background: #30363d; }
+.btn.warning { background: transparent; color: #f85149; border: 1px solid #f85149; }
+.btn.warning:hover { background: rgba(248, 81, 73, 0.1); }
+
+.live-summary { width: 350px; }
+.summary-box {
+    position: sticky;
+    top: 20px;
+    background: #181b21;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #2d333b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.summary-box h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 15px;
+    color: #ffffff;
+}
+#summary_list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    min-height: 200px;
+}
+#summary_list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #c9d1d9;
+}
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: #58a6ff;
+    border-top: 1px solid #30363d;
+    padding-top: 15px;
+}

@@ -1,0 +1,79 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.anketa-table {
+    background-color: #e0f7fa;
+    border-collapse: separate;
+    border-spacing: 3px;
+    border: 2px solid #90b4b4;
+    width: 650px;
+}
+
+.anketa-table td {
+    border: 1px solid #90b4b4;
+    padding: 8px 12px;
+}
+
+.title-cell {
+    text-align: center;
+    padding: 15px;
+}
+.title-cell h1 {
+    color: red;
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.num-cell {
+    text-align: center;
+    width: 30px;
+}
+.label-cell {
+    width: 220px;
+}
+
+.valign-top {
+    vertical-align: top;
+    padding-top: 10px !important;
+}
+
+.text-input {
+    width: 95%;
+    padding: 4px;
+    border: 1px solid #b0c4de;
+    box-sizing: border-box;
+}
+
+.interests-list {
+    line-height: 2;
+}
+.interest-input {
+    width: 88%;
+    padding: 3px;
+    border: 1px solid #b0c4de;
+    margin-left: 5px;
+}
+
+.buttons-cell {
+    padding: 15px 20px !important;
+}
+.btn-reset, .btn-submit {
+    padding: 4px 15px;
+    background-color: #efefef;
+    border: 1px solid #888;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+}
+.btn-submit {
+    background-color: #e8e8e8;
+}
+.btn-reset:active, .btn-submit:active {
+    background-color: #ccc;
+}
