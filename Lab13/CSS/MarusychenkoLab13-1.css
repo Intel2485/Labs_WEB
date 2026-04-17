@@ -1,0 +1,181 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    cursor: none;
+}
+
+.custom-cursor {
+    position: fixed;
+    width: 8px; height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    transition: width 0.2s, height 0.2s, background-color 0.3s;
+}
+
+.cursor-glow {
+    position: fixed;
+    width: 40px; height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px 10px rgba(0, 212, 255, 0.4);
+    z-index: 9999;
+    transition: box-shadow 0.3s, width 0.2s, height 0.2s;
+}
+
+.domain-expansion-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: radial-gradient(circle at center, #111 0%, #000 80%);
+    animation: breathe 8s infinite alternate ease-in-out;
+    z-index: 0;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes breathe {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.content-wrapper { height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+.z-1 { z-index: 1; position: relative; }
+
+.title-container {
+    position: relative;
+    display: inline-block;
+}
+
+.anime-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.hollow-purple {
+    color: #fff;
+    text-shadow: 0 0 10px #c77dff, 0 0 30px #5a189a, 0 0 60px #3c096c;
+    animation: purplePulse 3s infinite alternate;
+}
+
+.malevolent-shrine {
+    color: #ffb3b3;
+    text-shadow: 2px 2px 0px #8b0000, 0 0 20px #ff0000, 0 0 40px #660000;
+    animation: sukunaGlitch 4s infinite;
+}
+
+@keyframes purplePulse {
+    to { text-shadow: 0 0 25px #e0aaff, 0 0 60px #3c096c, 0 0 90px #240046; }
+}
+
+@keyframes sukunaGlitch {
+    96%, 100% { transform: skewX(0deg); }
+    97% { transform: skewX(8deg) translateX(-3px); text-shadow: -3px 0 0 #ff0000; }
+    99% { transform: skewX(-8deg) translateX(3px); text-shadow: 3px 0 0 #000; }
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: floatUp 1.5s ease-out forwards;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100px) scale(0); opacity: 0; }
+}
+
+.main-group-photo {
+    max-height: 65vh;
+    border-radius: 5px;
+    box-shadow: 0 0 50px rgba(0,0,0,1);
+    cursor: none;
+}
+
+.jjk-tooltip {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid #333;
+    padding: 15px 20px;
+    border-radius: 0 20px 0 20px;
+    width: 260px;
+    color: #eee;
+    transition: opacity 0.2s, visibility 0.2s, box-shadow 0.3s;
+    z-index: 9999;
+}
+
+.jjk-tooltip.active { opacity: 1; visibility: visible; }
+.jjk-tooltip h3 { margin: 0; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; }
+.tt-divider { height: 2px; width: 50%; margin: 8px 0 12px 0; transition: background 0.3s; }
+
+.img-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,0.8);
+}
+
+.cinematic-img {
+    max-height: 90vh; 
+    max-width: 100%;
+    width: auto;
+    object-fit: contain;
+    cursor: none;
+}
+
+.quote-overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+    pointer-events: none; 
+}
+
+.hero-quote {
+    font-size: 2.2rem;
+    max-width: 90%;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-quote {
+    animation: epicReveal 0.8s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes epicReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.click-to-play {
+    color: #aaa;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    animation: pulseText 2s infinite;
+}
+
+@keyframes pulseText { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; text-shadow: 0 0 10px #fff; } }

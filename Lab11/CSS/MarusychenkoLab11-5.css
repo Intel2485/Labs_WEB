@@ -145,6 +145,31 @@ input:focus, textarea:focus, .vamp-select:focus {
     color-scheme: dark; 
 }
 
+/* Стилізуємо сам список */
+.vamp-select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #444;
+    color: #fff;
+    padding: 10px 5px;
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    overflow-y: auto; /* Додає скрол, якщо елементів багато */
+}
+
+/* ХАК ДЛЯ HOVER (працює тільки якщо select має атрибут size) */
+.vamp-select option:hover,
+.vamp-select option:focus,
+.vamp-select option:checked {
+    background-color: #900000 !important;
+    color: #ffffff !important;
+    /* Використовуємо тінь, щоб перекрити системний синій колір */
+    box-shadow: 0 0 10px 100px #900000 inset !important;
+    cursor: pointer;
+}
+
 .radio-group, .checkbox-group {
     display: flex;
     flex-direction: column;

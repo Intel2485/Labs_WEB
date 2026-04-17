@@ -103,6 +103,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ініціалізуємо чек при завантаженні
     updateSummary();
 
+    // Обробник події очищення форми
+    form.addEventListener('reset', () => {
+        // Використовуємо setTimeout з нульовою затримкою. 
+        // Це потрібно, щоб дати браузеру мить на фактичне відновлення 
+        // стандартних значень HTML перед тим, як ми почнемо їх зчитувати.
+        setTimeout(() => {
+            toggleCpu();     // Відновлюємо відображення моделей і лого Intel
+            toggleGpu();     // Відновлюємо відображення моделей і лого NVIDIA
+            updateSummary(); // Перераховуємо чек та загальну суму
+        }, 0);
+    });
+    
     // Перехоплення відправки форми
     form.addEventListener('submit', (e) => {
         e.preventDefault();
