@@ -1,0 +1,244 @@
+:root {
+    --su-pink: #ff8cb2;
+    --su-blue: #74b9ff;
+    --su-gold: #fdcb6e;
+    --font-main: 'Nunito', sans-serif;
+    --font-header: 'Fredoka One', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background: linear-gradient(180deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 100vh;
+}
+
+.sky-background {
+    position: fixed;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/clouds.png');
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo h1 {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    color: white;
+    text-shadow: 3px 3px 0 var(--su-pink);
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.star-icon {
+    font-size: 2.5rem;
+    color: var(--su-gold);
+    text-shadow: 2px 2px 0 #d4a017;
+}
+
+.temple-archives {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.archive-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, text-shadow 0.2s ease;
+}
+
+.archive-link:hover {
+    opacity: 1;
+    text-shadow: 0 0 5px white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.section-title {
+    text-align: center;
+    color: #2c3e50;
+    font-family: var(--font-header);
+    margin-bottom: 20px;
+}
+
+#roster-section {
+    width: 90%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.gem-grid,
+.fusion-altar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.gem-card {
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    width: 110px;
+    height: 140px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.gem-card:hover {
+    transform: translateY(-3px);
+}
+
+.gem-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid;
+    background-color: #eee;
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.gem-name {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 13px;
+    line-height: 1.2;
+}
+
+.unfuse-btn {
+    margin-top: 8px;
+    background: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.ui-draggable-clone-fix {
+    width: 110px !important;
+    height: 140px !important;
+    background-color: white !important;
+    border-radius: 20px !important;
+    z-index: 9999 !important;
+    pointer-events: none;
+    box-shadow: 0 20px 40px rgba(255, 140, 178, 0.6) !important;
+    border: 3px solid var(--su-pink) !important;
+}
+
+#fusion-temple {
+    width: 90%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    padding: 30px;
+    border: 5px solid white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.fusion-altar {
+    min-height: 180px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    border: 2px dashed rgba(255, 255, 255, 0.8);
+    padding: 15px;
+}
+
+.fusion-controls {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.star-button {
+    width: 140px;
+    height: 140px;
+    border: none;
+    background: transparent url('../IMG/Star.png') center / contain no-repeat;
+    color: white;
+    font-family: var(--font-header);
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: drop-shadow(0 8px 6px rgba(211, 84, 0, 0.4));
+}
+
+.star-button:disabled {
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2)) grayscale(1);
+    cursor: not-allowed;
+    transform: scale(0.95);
+    color: #f1f2f6;
+}
+
+.star-button:not(:disabled):hover {
+    transform: rotate(10deg) scale(1.1) translateY(-5px);
+    filter: drop-shadow(0 15px 12px rgba(211, 84, 0, 0.6));
+}
+
+.fusion-active {
+    animation: fuseDance 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fuseDance {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.1);
+        filter: brightness(1.5) blur(1px);
+    }
+    100% {
+        transform: scale(0);
+        filter: brightness(2) blur(4px);
+        opacity: 0;
+    }
+}
+
+.glitch-error {
+    animation: glitchReject 0.4s ease-in-out;
+    border-color: #ff4c4c !important;
+}
+
+@keyframes glitchReject {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-8px);
+    }
+    40%, 80% {
+        transform: translateX(8px);
+    }
+}

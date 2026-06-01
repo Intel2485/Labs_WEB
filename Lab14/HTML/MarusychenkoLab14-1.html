@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заголовки типу H2</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab14-1.css">
+</head>
+<body>
+
+    <div class="settings-panel">
+        <div class="color-picker">
+            <label for="bgColorPicker">Фон</label>
+            <input type="color" id="bgColorPicker" value="#35363a">
+        </div>
+        <div class="color-picker">
+            <label for="logoColorPicker">Логотип</label>
+            <input type="color" id="logoColorPicker" value="#ffffff">
+        </div>
+    </div>
+
+    <div class="main-container">
+        <a href="https://www.google.com" class="logo" id="logo">Google</a>
+
+        <form class="search-bar" action="https://www.google.com/search" method="GET">
+            <input type="text" name="q" placeholder="Введіть пошуковий запит або URL" autocomplete="off" required>
+            <button type="submit">🔍</button>
+        </form>
+
+        <div class="shortcuts-container" id="shortcutsContainer">
+            <div class="shortcut add-btn" onclick="openModal()">
+                <div class="shortcut-icon">+</div>
+                <div class="shortcut-title">Додати ярлик</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h3>Додати ярлик</h3>
+            <div class="input-group">
+                <label>Назва</label>
+                <input type="text" id="shortcutName" placeholder="Введіть назву">
+            </div>
+            <div class="input-group">
+                <label>URL</label>
+                <input type="url" id="shortcutUrl" placeholder="https://">
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn" onclick="closeModal()">Скасувати</button>
+                <button class="modal-btn save" onclick="saveShortcut()">Готово</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/MarusychenkoLab14-1.js"></script>
+</body>
+</html>

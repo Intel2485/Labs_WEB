@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    background-color: #f4f6f7;
+    color: #333;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: #2c3e50;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.task-6-text { 
+    color: #2980b9; 
+}
+
+.task-6-last { 
+    color: #e74c3c; 
+    font-weight: bold; 
+    border-left: 4px solid #e74c3c;
+    padding-left: 15px;
+}
+
+.task-7-p1 { 
+    font-size: 14px; 
+    background-color: #e8f8f5; 
+    padding: 20px; 
+    border-radius: 8px; 
+}
+.task-7-p2 { 
+    font-size: 18px; 
+    background-color: #fef9e7; 
+    padding: 20px; 
+    border-radius: 8px; 
+}
+.task-7-p3 { 
+    font-size: 22px; 
+    background-color: #f5eef8; 
+    padding: 20px; 
+    border-radius: 8px; 
+}
+
+body.bg-task-8 { background-color: #e5e8e8; }
+
+.task-8-p1 { 
+    color: #117a65; 
+    text-align: center; 
+    font-size: 16px; 
+}
+
+.task-8-p2 { 
+    color: #8e44ad; 
+    text-align: center; 
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 20px; 
+    background: #fdfefe;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+body.bg-task-9 { background-color: #fcf3cf; }
+
+.task-9-p1 { 
+    color: #d35400; 
+    text-indent: 40px; 
+    font-size: 16px; 
+}
+
+.task-9-p2 { 
+    color: #283747; 
+    text-indent: 80px; 
+    font-family: 'Georgia', serif; 
+    font-size: 22px; 
+    border-top: 1px dashed #ccc;
+    padding-top: 20px;
+}

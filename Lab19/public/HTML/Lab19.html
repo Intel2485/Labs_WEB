@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUSE PANEL — Don't Let The Lights Go Out</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=VT323&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../CSS/Lab19.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+
+<body>
+
+    <canvas id="noise-canvas"></canvas>
+    <div id="vignette"></div>
+    <div id="scanlines"></div>
+    <div id="flicker-light"></div>
+
+    <div id="screamer-overlay">
+        <div id="screamer-face"></div>
+    </div>
+
+    <div id="menu-screen">
+        <div class="menu-bg-pipes"></div>
+        <div class="menu-content">
+            <div class="menu-eyebrow">FAZBEAR ENTERTAINMENT — RESTRICTED ACCESS</div>
+            <div class="menu-title">FUSE<br>PANEL</div>
+            <div class="menu-tagline">DON'T LET THE LIGHTS GO OUT</div>
+            <div class="warning-stripe-thick">
+                <span>⚠</span><span>⚠</span><span>⚠</span><span>⚠</span><span>⚠</span><span>⚠</span>
+            </div>
+            <div class="menu-lore">
+                <p>Система аварійного живлення виходить з ладу.</p>
+                <p>Аніматроніки активні. Реагуй швидко.</p>
+                <p>Якщо згасне світло — <span class="lore-red">вони прийдуть.</span></p>
+            </div>
+            <button id="start-btn">
+                <span class="btn-bracket">[</span> УВІМКНУТИ СИСТЕМУ <span class="btn-bracket">]</span>
+            </button>
+            <div class="menu-instructions">
+                <div class="inst-row"><span class="inst-key">ТЯГНИ</span> запобіжник зі складу → на зламаний слот</div>
+                <div class="inst-row"><span class="inst-key">ФРЕДДІ</span> очі світяться → натисни FLASHLIGHT</div>
+                <div class="inst-row"><span class="inst-key">ФОКСІ</span> очі світяться → натисни SHOCKER</div>
+                <div class="inst-row"><span class="inst-key">БОНІ</span> очі світяться → НЕ міняй запобіжники!</div>
+                <div class="inst-row"><span class="inst-key">50</span> замін = виживання</div>
+            </div>
+            <div class="menu-record-row">
+                РЕКОРД: <span id="menu-record" class="amber">—</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen">
+
+        <div id="hud">
+            <div class="hud-block">
+                <div class="hud-label">ЗАМІНЕНО</div>
+                <div class="hud-value green" id="score-val">00</div>
+            </div>
+            <div class="hud-center">
+                <div class="hud-facility">FAZBEAR ENTERTAINMENT</div>
+                <div class="hud-system">⚡ EMERGENCY POWER CONTROL ⚡</div>
+            </div>
+            <div class="hud-block" style="text-align:center">
+                <div class="hud-label">ЧАС</div>
+                <div class="hud-value amber" id="timer-val">00:00</div>
+            </div>
+            <div class="hud-block" style="text-align:right">
+                <div class="hud-label">РЕКОРД</div>
+                <div class="hud-value" style="color:#c8b89a" id="record-val">—</div>
+            </div>
+        </div>
+
+        <div id="panel-container">
+
+            <div id="fuse-panel">
+                <div class="rivet tl"></div>
+                <div class="rivet tr"></div>
+                <div class="rivet bl"></div>
+                <div class="rivet br"></div>
+                <div class="rust-streak" style="left:15%;top:0;height:40%;opacity:0.35;width:3px;"></div>
+                <div class="rust-streak" style="left:48%;top:0;height:25%;opacity:0.2;width:2px;"></div>
+                <div class="rust-streak" style="right:20%;top:0;height:55%;opacity:0.3;width:4px;"></div>
+
+                <div class="panel-header">
+                    <div class="panel-eyebrow">ELECTRICAL CONTROL BOX — CLASS IV</div>
+                    <div class="panel-title-text">ЗАПОБІЖНИЙ ЩИТОК</div>
+                    <div class="panel-serial">SN: FE-7743-B // DO NOT SERVICE WITHOUT AUTHORIZATION</div>
+                </div>
+
+                <div class="slots-row" id="top-slots"></div>
+
+                <div class="panel-divider">
+                    <div class="divider-line"></div>
+                    <div class="warning-badge">
+                        <svg width="14" height="14" viewBox="0 0 14 14" style="vertical-align:middle;margin-right:4px">
+                            <path d="M7 1L13 12H1L7 1Z" fill="#ffcc00" stroke="#aa8800" stroke-width="0.5" />
+                            <text x="7" y="11" text-anchor="middle" fill="#333" font-size="7"
+                                font-weight="bold">!</text>
+                        </svg>
+                        WARNING — HIGH VOLTAGE
+                    </div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <div class="bottom-row">
+                    <div class="main-gauge-wrap">
+                        <svg class="main-gauge-svg" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="gFace" cx="50%" cy="100%" r="70%">
+                                    <stop offset="0%" stop-color="#e8e0d0" />
+                                    <stop offset="60%" stop-color="#ccc4b4" />
+                                    <stop offset="100%" stop-color="#b0a898" />
+                                </radialGradient>
+                                <radialGradient id="gCenter" cx="40%" cy="30%" r="70%">
+                                    <stop offset="0%" stop-color="#aaa" />
+                                    <stop offset="100%" stop-color="#333" />
+                                </radialGradient>
+                            </defs>
+                            <path d="M10,108 A70,70 0 0,1 150,108" fill="#1e1c12" stroke="#3a3530" stroke-width="4" />
+                            <path d="M16,108 A64,64 0 0,1 144,108" fill="url(#gFace)" />
+                            <g stroke="#555" stroke-width="1" opacity="0.6">
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(-80 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(-60 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(-40 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(-20 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(0 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(20 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(40 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(60 80 108)" />
+                                <line x1="80" y1="16" x2="80" y2="26" transform="rotate(80 80 108)" />
+                            </g>
+                            <text x="22" y="100" fill="#555" font-size="8" font-family="Share Tech Mono">0</text>
+                            <text x="70" y="24" fill="#555" font-size="8" font-family="Share Tech Mono">25</text>
+                            <text x="130" y="100" fill="#555" font-size="8" font-family="Share Tech Mono">40</text>
+                            <text x="80" y="95" text-anchor="middle" fill="#666" font-size="9"
+                                font-family="Share Tech Mono">V</text>
+                            <line id="main-needle-svg" x1="80" y1="108" x2="80" y2="30" stroke="#dd1100"
+                                stroke-width="2.5" stroke-linecap="round" transform="rotate(-80 80 108)"
+                                style="transition:transform 1s cubic-bezier(0.25,0.46,0.45,0.94)" />
+                            <circle cx="80" cy="108" r="6" fill="url(#gCenter)" stroke="#222" stroke-width="1" />
+                        </svg>
+                        <div class="slot-label-tag">MAIN POWER</div>
+                        <div class="main-health-bar">
+                            <div id="main-health-fill"></div>
+                        </div>
+                    </div>
+                    <div class="slots-row" id="bottom-slots" style="margin:0;flex-wrap:wrap;max-width:320px;gap:24px;">
+                    </div>
+                </div>
+
+                <div id="animatronic-section">
+                    <div class="panel-divider" style="margin:18px 0 14px">
+                        <div class="divider-line"></div>
+                        <div class="warning-badge" style="border-color:#660000;color:#ff4422;font-size:0.75rem;">
+                            ⚠ ANIMATRONIC ACTIVITY MONITOR
+                        </div>
+                        <div class="divider-line"></div>
+                    </div>
+
+                    <div id="animatronic-row">
+
+                        <div class="animatronic-cell" id="cell-freddy">
+                            <div class="anima-head" id="head-freddy">
+
+                                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="head-svg">
+
+                                    <ellipse cx="40" cy="44" rx="32" ry="30" fill="#1a1410" stroke="#2a1e14"
+                                        stroke-width="1.5" />
+
+                                    <rect x="18" y="18" width="44" height="5" rx="2" fill="#0d0a08" stroke="#1a1410"
+                                        stroke-width="1" />
+
+                                    <rect x="24" y="3" width="32" height="18" rx="2" fill="#0d0a08" stroke="#1a1410"
+                                        stroke-width="1" />
+
+                                    <rect x="24" y="16" width="32" height="4" fill="#1a0f0a" />
+
+                                    <ellipse cx="10" cy="38" rx="7" ry="9" fill="#1a1410" stroke="#2a1e14"
+                                        stroke-width="1" />
+                                    <ellipse cx="70" cy="38" rx="7" ry="9" fill="#1a1410" stroke="#2a1e14"
+                                        stroke-width="1" />
+
+                                    <ellipse cx="40" cy="54" rx="14" ry="10" fill="#221810" stroke="#2e1e12"
+                                        stroke-width="1" />
+
+                                    <ellipse cx="40" cy="49" rx="4" ry="3" fill="#1a0f0a" />
+
+                                    <path d="M30 57 Q40 63 50 57" stroke="#0d0a08" stroke-width="1.5" fill="none" />
+
+                                    <ellipse cx="28" cy="38" rx="9" ry="8" fill="#0d0a08" stroke="#1a1410"
+                                        stroke-width="1" />
+                                    <ellipse cx="52" cy="38" rx="9" ry="8" fill="#0d0a08" stroke="#1a1410"
+                                        stroke-width="1" />
+
+                                    <ellipse id="eye-freddy-l" cx="28" cy="38" rx="5" ry="5" fill="#1a1410"
+                                        class="anima-eye" />
+                                    <ellipse id="eye-freddy-r" cx="52" cy="38" rx="5" ry="5" fill="#1a1410"
+                                        class="anima-eye" />
+
+                                    <circle cx="28" cy="38" r="2" fill="#0a0806" class="pupil" />
+                                    <circle cx="52" cy="38" r="2" fill="#0a0806" class="pupil" />
+
+                                    <path d="M15 25 L22 35 L18 40" stroke="#0a0806" stroke-width="0.8" fill="none"
+                                        opacity="0.6" />
+                                    <path d="M58 28 L63 36" stroke="#0a0806" stroke-width="0.8" fill="none"
+                                        opacity="0.5" />
+                                </svg>
+                                <div class="anima-glow-ring" id="ring-freddy"></div>
+                            </div>
+                            <div class="anima-name freddy-color">FREDDY</div>
+                            <div class="anima-status" id="status-freddy">DORMANT</div>
+                            <button class="anima-btn flashlight-btn" id="btn-freddy" disabled>
+                                🔦 FLASHLIGHT
+                            </button>
+                        </div>
+
+
+                        <div class="animatronic-cell" id="cell-bonnie">
+                            <div class="anima-head" id="head-bonnie">
+                                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="head-svg">
+
+                                    <ellipse cx="40" cy="45" rx="30" ry="28" fill="#12161e" stroke="#1a2028"
+                                        stroke-width="1.5" />
+
+                                    <ellipse cx="26" cy="10" rx="7" ry="18" fill="#12161e" stroke="#1a2028"
+                                        stroke-width="1" />
+                                    <ellipse cx="54" cy="10" rx="7" ry="18" fill="#12161e" stroke="#1a2028"
+                                        stroke-width="1" />
+
+                                    <ellipse cx="26" cy="10" rx="4" ry="13" fill="#0d1018" opacity="0.7" />
+                                    <ellipse cx="54" cy="10" rx="4" ry="13" fill="#0d1018" opacity="0.7" />
+
+                                    <ellipse cx="40" cy="55" rx="13" ry="9" fill="#181c24" stroke="#202830"
+                                        stroke-width="1" />
+
+                                    <ellipse cx="40" cy="50" rx="3.5" ry="2.5" fill="#0d1018" />
+
+                                    <path d="M33 68 L40 64 L47 68 L40 72 Z" fill="#0d1018" stroke="#14181e"
+                                        stroke-width="0.8" />
+
+                                    <ellipse cx="27" cy="40" rx="9" ry="8" fill="#0d1018" stroke="#1a2028"
+                                        stroke-width="1" />
+                                    <ellipse cx="53" cy="40" rx="9" ry="8" fill="#0d1018" stroke="#1a2028"
+                                        stroke-width="1" />
+
+                                    <ellipse id="eye-bonnie-l" cx="27" cy="40" rx="5" ry="5" fill="#12161e"
+                                        class="anima-eye" />
+                                    <ellipse id="eye-bonnie-r" cx="53" cy="40" rx="5" ry="5" fill="#12161e"
+                                        class="anima-eye" />
+                                    <circle cx="27" cy="40" r="2" fill="#0a0d12" class="pupil" />
+                                    <circle cx="53" cy="40" r="2" fill="#0a0d12" class="pupil" />
+
+                                    <path d="M20 30 L26 42" stroke="#0a0d12" stroke-width="1" fill="none"
+                                        opacity="0.5" />
+                                    <path d="M55 35 L60 28 L58 22" stroke="#0a0d12" stroke-width="0.8" fill="none"
+                                        opacity="0.4" />
+
+                                    <path d="M12 48 Q8 55 14 60" stroke="#2244aa" stroke-width="1.2" fill="none"
+                                        opacity="0.6" />
+                                    <path d="M14 50 Q10 57 15 62" stroke="#22aa44" stroke-width="1" fill="none"
+                                        opacity="0.5" />
+                                </svg>
+                                <div class="anima-glow-ring" id="ring-bonnie"></div>
+                            </div>
+                            <div class="anima-name bonnie-color">BONNIE</div>
+                            <div class="anima-status" id="status-bonnie">DORMANT</div>
+                            <div class="bonnie-warning" id="bonnie-warning">⚠ НЕ МІНЯЙ ЗАПОБІЖНИКИ!</div>
+                        </div>
+
+
+                        <div class="animatronic-cell" id="cell-foxy">
+                            <div class="anima-head" id="head-foxy">
+                                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="head-svg">
+
+                                    <ellipse cx="40" cy="45" rx="28" ry="26" fill="#2a1010" stroke="#3a1818"
+                                        stroke-width="1.5" />
+
+                                    <polygon points="22,28 15,5 30,20" fill="#2a1010" stroke="#3a1818"
+                                        stroke-width="1" />
+                                    <polygon points="58,28 65,5 50,20" fill="#2a1010" stroke="#3a1818"
+                                        stroke-width="1" />
+
+                                    <polygon points="23,25 18,10 28,20" fill="#1a0808" opacity="0.7" />
+                                    <polygon points="57,25 62,10 52,20" fill="#1a0808" opacity="0.7" />
+
+                                    <path d="M30 52 Q40 65 50 52 Q48 48 40 46 Q32 48 30 52Z" fill="#200c0c"
+                                        stroke="#2a1010" stroke-width="1" />
+
+                                    <ellipse cx="40" cy="50" rx="4" ry="3" fill="#150808" />
+
+                                    <rect x="36" y="56" width="3" height="4" rx="1" fill="#c8c0a8" opacity="0.4" />
+                                    <rect x="41" y="56" width="3" height="4" rx="1" fill="#c8c0a8" opacity="0.4" />
+
+                                    <ellipse cx="27" cy="39" rx="10" ry="9" fill="#150808" stroke="#200c0c"
+                                        stroke-width="1" />
+                                    <path d="M18 33 L36 45" stroke="#0d0606" stroke-width="2" stroke-linecap="round" />
+
+                                    <ellipse cx="27" cy="39" rx="8" ry="7" fill="#0d0606" stroke="#1a0808"
+                                        stroke-width="1" />
+                                    <ellipse cx="53" cy="39" rx="8" ry="7" fill="#0d0606" stroke="#1a0808"
+                                        stroke-width="1" />
+
+                                    <ellipse id="eye-foxy-l" cx="27" cy="39" rx="4" ry="4" fill="#2a1010"
+                                        class="anima-eye" />
+                                    <ellipse id="eye-foxy-r" cx="53" cy="39" rx="4" ry="4" fill="#2a1010"
+                                        class="anima-eye" />
+                                    <circle cx="27" cy="39" r="1.5" fill="#0d0606" class="pupil" />
+                                    <circle cx="53" cy="39" r="1.5" fill="#0d0606" class="pupil" />
+
+                                    <path d="M65 55 Q72 52 70 62 Q68 70 62 68" stroke="#6a6050" stroke-width="2"
+                                        fill="none" stroke-linecap="round" />
+
+                                    <path d="M12 42 Q8 50 13 55" stroke="#1a0808" stroke-width="1.5" fill="none"
+                                        opacity="0.6" />
+                                    <path d="M60 30 L66 38" stroke="#1a0808" stroke-width="1" fill="none"
+                                        opacity="0.4" />
+
+                                    <path d="M15 50 Q11 58 16 64" stroke="#aa2222" stroke-width="1.2" fill="none"
+                                        opacity="0.7" />
+                                    <path d="M17 52 Q13 60 18 65" stroke="#cc4422" stroke-width="1" fill="none"
+                                        opacity="0.5" />
+                                </svg>
+                                <div class="anima-glow-ring" id="ring-foxy"></div>
+                            </div>
+                            <div class="anima-name foxy-color">FOXY</div>
+                            <div class="anima-status" id="status-foxy">DORMANT</div>
+                            <button class="anima-btn shocker-btn" id="btn-foxy" disabled>
+                                ⚡ SHOCKER
+                            </button>
+                        </div>
+
+
+
+                        <div id="tool-gauges-row">
+
+                            <div class="tool-gauge-wrap">
+                                <div class="tool-gauge-label">🔦 FLASHLIGHT CHARGE</div>
+                                <svg class="tool-gauge-svg" viewBox="0 0 110 76" xmlns="http://www.w3.org/2000/svg"
+                                    id="gauge-flashlight-svg">
+                                    <defs>
+                                        <radialGradient id="gfFlash" cx="50%" cy="100%" r="75%">
+                                            <stop offset="0%" stop-color="#e8e0d0" />
+                                            <stop offset="55%" stop-color="#ccc4b4" />
+                                            <stop offset="100%" stop-color="#a8a090" />
+                                        </radialGradient>
+                                    </defs>
+                                    <path d="M6,74 A49,49 0 0,1 104,74" fill="#1a1810" stroke="#3a3530"
+                                        stroke-width="3" />
+                                    <path d="M10,74 A45,45 0 0,1 100,74" fill="url(#gfFlash)" />
+                                    <g stroke="#5a5248" stroke-width="0.8" opacity="0.7">
+                                        <line x1="55" y1="12" x2="55" y2="20" transform="rotate(-80 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="18" transform="rotate(-40 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="20" transform="rotate(0 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="18" transform="rotate(40 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="20" transform="rotate(80 55 74)" />
+                                    </g>
+                                    <text x="55" y="64" text-anchor="middle" fill="#7a7060" font-size="7"
+                                        font-family="Share Tech Mono">CHRG</text>
+                                    <line id="needle-flashlight" x1="55" y1="74" x2="55" y2="20" stroke="#ffcc00"
+                                        stroke-width="2" stroke-linecap="round" transform="rotate(80 55 74)"
+                                        style="transition:transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94)" />
+                                    <circle cx="55" cy="74" r="5" fill="#3a3530" stroke="#1a1810" stroke-width="1" />
+                                </svg>
+                                <div class="tool-health-bar">
+                                    <div id="fill-flashlight"></div>
+                                </div>
+                            </div>
+
+                            <div class="tool-gauge-wrap">
+                                <div class="tool-gauge-label">⚡ SHOCKER CHARGE</div>
+                                <svg class="tool-gauge-svg" viewBox="0 0 110 76" xmlns="http://www.w3.org/2000/svg"
+                                    id="gauge-shocker-svg">
+                                    <defs>
+                                        <radialGradient id="gfShock" cx="50%" cy="100%" r="75%">
+                                            <stop offset="0%" stop-color="#e8e0d0" />
+                                            <stop offset="55%" stop-color="#ccc4b4" />
+                                            <stop offset="100%" stop-color="#a8a090" />
+                                        </radialGradient>
+                                    </defs>
+                                    <path d="M6,74 A49,49 0 0,1 104,74" fill="#1a1810" stroke="#3a3530"
+                                        stroke-width="3" />
+                                    <path d="M10,74 A45,45 0 0,1 100,74" fill="url(#gfShock)" />
+                                    <g stroke="#5a5248" stroke-width="0.8" opacity="0.7">
+                                        <line x1="55" y1="12" x2="55" y2="20" transform="rotate(-80 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="18" transform="rotate(-40 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="20" transform="rotate(0 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="18" transform="rotate(40 55 74)" />
+                                        <line x1="55" y1="12" x2="55" y2="20" transform="rotate(80 55 74)" />
+                                    </g>
+                                    <text x="55" y="64" text-anchor="middle" fill="#7a7060" font-size="7"
+                                        font-family="Share Tech Mono">CHRG</text>
+                                    <line id="needle-shocker" x1="55" y1="74" x2="55" y2="20" stroke="#4466ff"
+                                        stroke-width="2" stroke-linecap="round" transform="rotate(80 55 74)"
+                                        style="transition:transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94)" />
+                                    <circle cx="55" cy="74" r="5" fill="#3a3530" stroke="#1a1810" stroke-width="1" />
+                                </svg>
+                                <div class="tool-health-bar">
+                                    <div id="fill-shocker"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                </div><div id="right-column">
+                    <div id="spare-panel">
+                        <div class="spare-box-header">
+                            <div class="spare-box-label">SPARE FUSES</div>
+                            <div class="spare-box-label" style="font-size:0.6rem;opacity:0.5">16A / TYPE-B</div>
+                        </div>
+                        <div id="spare-fuses"></div>
+                        <div class="spare-count-row">ЗАЛИШИЛОСЬ: <span id="spare-count-val" class="amber">20</span>
+                        </div>
+                    </div>
+
+                    <div id="event-log">
+                        <div class="log-header"><span class="log-blink">█</span> SYSTEM LOG — LIVE FEED</div>
+                        <div id="log-entries"></div>
+                    </div>
+
+                    <div id="atmosphere-box">
+                        <div id="atmo-text">Перевір усі камери...</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="overlay" id="gameover-overlay">
+            <div class="overlay-box red-border">
+                <div class="overlay-eyebrow">— CRITICAL FAILURE —</div>
+                <div class="overlay-title" style="color:#ff2200">POWER LOST</div>
+                <div class="overlay-sub" id="gameover-reason">Всі запобіжники перегоріли.</div>
+                <div class="overlay-score">Замінено: <span id="final-score" class="amber">0</span></div>
+                <div class="overlay-record">Рекорд: <span id="gameover-record" class="amber">—</span></div>
+                <button class="btn-action" id="restart-btn">↺ ПЕРЕЗАПУСТИТИ СИСТЕМУ</button>
+            </div>
+        </div>
+
+        <div class="overlay" id="win-overlay">
+            <div class="overlay-box green-border">
+                <div class="overlay-eyebrow">— SYSTEM STABLE —</div>
+                <div class="overlay-title" style="color:#39ff14">SURVIVED</div>
+                <div class="overlay-sub">Система стабілізована.<br>Ранок настав. Ти вижив.</div>
+                <div class="overlay-score">Замінено: <span id="win-score" class="green">0</span></div>
+                <div class="overlay-record">Рекорд: <span id="win-record" class="amber">—</span></div>
+                <button class="btn-action" id="win-restart-btn">↺ НОВА НІЧ</button>
+            </div>
+        </div>
+
+        <script src="../JS/Lab19.js"></script>
+</body>
+
+</html>

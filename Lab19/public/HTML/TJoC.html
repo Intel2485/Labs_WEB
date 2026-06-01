@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>TJOC 2026: Web Engine</title>
+    <link rel="stylesheet" href="../CSS/TJoC.css">
+</head>
+<body>
+    <div id="hud">
+        <div id="flashlight-status">Ліхтарик: УВІМК</div>
+        <div id="fuses-count">Запобіжники: 0</div>
+    </div>
+
+    <div id="flashlight-overlay"></div>
+
+    <div id="scene">
+        <div id="world">
+            <div class="plane floor"></div>
+            <div class="plane ceiling"></div>
+
+            <div class="wall front-wall">
+                <div class="monitor" id="mon-1">CAM 1</div>
+                <div class="monitor" id="mon-2">CAM 2</div>
+                <div class="monitor" id="mon-3">CAM 3</div>
+            </div>
+            
+            <div class="wall back-wall">
+                <div id="fuse-box">ЩИТОК ЖИВЛЕННЯ</div>
+            </div>
+            
+            <div class="wall left-wall">
+                <div class="door">
+                    <div id="freddy"></div>
+                    <div class="door-handle"></div>
+                </div>
+            </div>
+            
+            <div class="wall right-wall">
+                <div class="curtain"></div>
+            </div>
+
+            <div id="desk"></div>
+            <div id="cabinets-container"></div>
+        </div>
+    </div>
+
+    <div id="jumpscare-screen" class="hidden"></div>
+
+    <div id="main-power-panel" class="hidden">
+        <button id="close-power-panel" class="close-btn">X</button>
+        <h2>СИСТЕМА РОЗПОДІЛУ ЖИВЛЕННЯ</h2>
+        <div class="meters-container">
+            <div class="meter" data-sys="cam1">
+                <div class="status-light green"></div>
+                <div class="meter-label">CAM 1 (Тварини)</div>
+            </div>
+            <div class="meter" data-sys="cam2">
+                <div class="status-light green"></div>
+                <div class="meter-label">CAM 2 (Комахи)</div>
+            </div>
+            <div class="meter" data-sys="cam3">
+                <div class="status-light green"></div>
+                <div class="meter-label">CAM 3 (Риби)</div>
+            </div>
+            <div class="meter" data-sys="main">
+                <div class="status-light green"></div>
+                <div class="meter-label">MAIN (Офіс)</div>
+            </div>
+            <div class="meter" data-sys="flash">
+                <div class="status-light green"></div>
+                <div class="meter-label">FLASHLIGHT</div>
+            </div>
+        </div>
+        <p class="instruction">Натисніть на ЗЛАМАНУ (червону/вимкнену) систему, щоб замінити запобіжник.</p>
+    </div>
+
+    <div id="fuse-box-minigame" class="hidden">
+        <button id="close-minigame" class="close-btn">X ЗАКРИТИ</button>
+        <h2>ПЕРЕЗАВАНТАЖЕННЯ СИСТЕМИ (Шукай збіг)</h2>
+        <div class="minigame-layout">
+            <div class="target-section">
+                <p>Знайди цей контакт:</p>
+                <div id="current-target"></div>
+            </div>
+            <div id="grid-5x5"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="../JS/TJoC.js"></script>
+</body>
+</html>

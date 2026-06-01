@@ -1,0 +1,36 @@
+const GEMS_DATA = {
+    // === БАЗОВІ ПЕРСОНАЖІ (15 шт.) ===
+    'steven': { name: 'Стівен', color: '#ff8cb2', bases: ['steven'] },
+    'pearl': { name: 'Перлина', color: '#74b9ff', bases: ['pearl'] },
+    'amethyst': { name: 'Аметист', color: '#9b59b6', bases: ['amethyst'] },
+    'ruby': { name: 'Рубін', color: '#e84118', bases: ['ruby'] },
+    'sapphire': { name: 'Сапфір', color: '#192a56', bases: ['sapphire'] },
+    'peridot': { name: 'Перидот', color: '#2ecc71', bases: ['peridot'] },
+    'lapis': { name: 'Лазурит', color: '#0984e3', bases: ['lapis'] },
+    'bismuth': { name: 'Вісмут', color: '#fab1a0', bases: ['bismuth'] },
+    'jasper': { name: 'Яшма', color: '#e67e22', bases: ['jasper'] },
+    'rose': { name: 'Роза Кварц', color: '#ff8cb2', bases: ['rose'] },
+    'connie': { name: 'Конні', color: '#8c7e6d', bases: ['connie'] },
+    'greg': { name: 'Грег', color: '#dfe6e9', bases: ['greg'] },
+    'volleyball': { name: 'Волейбол', color: '#ffc4d9', bases: ['volleyball'] },
+    'aquamarine': { name: 'Аквамарин', color: '#8ce2ff', bases: ['aquamarine'] },
+    'eyeball': { name: 'Рубін (Око)', color: '#d32f2f', bases: ['eyeball'] },
+
+    // === ЗЛИТТЯ (16 шт.) ===
+    'garnet': { name: 'Гранат', color: '#c23616', bases: ['ruby', 'sapphire'], isFusion: true },
+    'opal': { name: 'Опал', color: '#a7b1b1', bases: ['pearl', 'amethyst'], isFusion: true },
+    'stevonnie': { name: 'Стівенні', color: '#fd79a8', bases: ['steven', 'connie'], isFusion: true },
+    'smoky': { name: 'Димчастий Кварц', color: '#636e72', bases: ['steven', 'amethyst'], isFusion: true },
+    'sardonyx': { name: 'Сардонікс', color: '#f0932b', bases: ['pearl', 'ruby', 'sapphire'], isFusion: true },
+    'sugilite': { name: 'Сугіліт', color: '#6c5ce7', bases: ['amethyst', 'ruby', 'sapphire'], isFusion: true },
+    'alexandrite': { name: 'Олександрит', color: '#1abc9c', bases: ['pearl', 'amethyst', 'ruby', 'sapphire'], isFusion: true },
+    'rainbow': { name: 'Райдужний Кварц', color: '#a29bfe', bases: ['pearl', 'rose'], isFusion: true },
+    'malachite': { name: 'Малахіт', color: '#00b894', bases: ['jasper', 'lapis'], isFusion: true },
+    'obsidian': { name: 'Обсидіан', color: '#2d3436', bases: ['steven', 'pearl', 'amethyst', 'ruby', 'sapphire'], isFusion: true },
+    'steg': { name: 'Стег', color: '#d4a373', bases: ['steven', 'greg'], isFusion: true },
+    'sunstone': { name: 'Сонячний Камінь', color: '#f39c12', bases: ['steven', 'ruby', 'sapphire'], isFusion: true },
+    'rainbow2': { name: 'Райдужний Кварц 2.0', color: '#d6a2e8', bases: ['steven', 'pearl'], isFusion: true },
+    'rhodonite': { name: 'Родоніт', color: '#d94b8e', bases: ['pearl', 'ruby'], isFusion: true },
+    'mega_pearl': { name: 'Мега Перлина', color: '#f7a8b8', bases: ['pearl', 'volleyball'], isFusion: true },
+    'bluebird': { name: 'Блюберд Азурит', color: '#3742fa', bases: ['aquamarine', 'eyeball'], isFusion: true }
+};

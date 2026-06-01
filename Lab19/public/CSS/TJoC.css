@@ -1,0 +1,62 @@
+body { margin: 0; overflow: hidden; background: #000; color: white; font-family: sans-serif; cursor: crosshair; }
+
+#hud { position: fixed; top: 20px; left: 20px; z-index: 300; font-size: 24px; color: #0f0; pointer-events: none; text-shadow: 0 0 10px #0f0; }
+
+#flashlight-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 200; background: radial-gradient(circle 30vw at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.85) 80%); }
+.flashlight-off { background: rgba(0, 0, 0, 0.85) !important; }
+
+#scene { width: 100vw; height: 100vh; perspective: 600px; overflow: hidden; }
+#world { width: 100%; height: 100%; position: absolute; transform-style: preserve-3d; transition: transform 0.1s linear; }
+
+/* Магія 3D */
+.plane, .wall { position: absolute; width: 2000px; height: 2000px; background: repeating-linear-gradient(90deg, #1a1a1a, #1a1a1a 40px, #111 40px, #111 80px); border: 2px solid #000; box-shadow: inset 0 0 400px #000; transform-style: preserve-3d; }
+.floor { transform: rotateX(90deg) translateZ(-300px); background: repeating-linear-gradient(0deg, #120a05, #120a05 50px, #0a0502 50px, #0a0502 52px); }
+.ceiling { transform: rotateX(-90deg) translateZ(-300px); background: radial-gradient(circle at center, #111 0%, #000 80%); }
+.front-wall { transform: translateZ(-1000px) translateY(-500px); }
+.back-wall { transform: rotateY(180deg) translateZ(-1000px) translateY(-500px); }
+.left-wall { transform: rotateY(90deg) translateZ(-1000px) translateY(-500px); }
+.right-wall { transform: rotateY(-90deg) translateZ(-1000px) translateY(-500px); }
+
+/* Об'єкти */
+#desk { position: absolute; width: 1200px; height: 500px; background: #1a110a; border-top: 20px solid #0a0502; transform: translateZ(-600px) translateY(200px) translateX(-600px); box-shadow: inset 0 -100px 100px #000; }
+.monitor { position: absolute; width: 160px; height: 120px; background: repeating-linear-gradient(0deg, #001100, #001100 2px, #002200 2px, #002200 4px); border: 10px solid #111; border-radius: 5px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); color: #0f0; text-align: center; line-height: 100px; font-family: monospace; font-weight: bold; top: 350px; }
+#mon-1 { left: 40%; transform: translateX(-50%) rotateY(15deg); }
+#mon-2 { left: 50%; transform: translateX(-50%); }
+#mon-3 { left: 60%; transform: translateX(-50%) rotateY(-15deg); }
+
+.door { position: absolute; width: 350px; height: 800px; background: #1a1512; border: 15px solid #050505; bottom: -500px; left: 800px; box-shadow: inset 0 0 80px #000; transform-style: preserve-3d; }
+.door-handle { position: absolute; width: 30px; height: 15px; background: #555; right: 20px; top: 400px; }
+.curtain { position: absolute; width: 450px; height: 900px; bottom: -500px; left: 800px; background: repeating-linear-gradient(90deg, #400 0%, #200 10%, #400 20%); box-shadow: inset 0 0 100px #000, 20px 0 50px #000; border-radius: 10px 10px 0 0; }
+
+.cabinet { position: absolute; width: 150px; height: 250px; background: #211; border: 2px solid #000; cursor: pointer; color: #555; text-align: center; line-height: 250px; font-weight: bold; }
+
+#fuse-box { position: absolute; width: 250px; height: 350px; background: #222; border: 10px solid #111; top: 800px; left: 50%; transform: translateX(-50%) translateZ(20px); color: #ff0; text-align: center; line-height: 350px; font-size: 24px; cursor: pointer; font-family: monospace; box-shadow: 0 0 20px rgba(0,0,0,0.8); transition: 0.3s; z-index: 100; }
+#fuse-box:hover { background: #333; box-shadow: 0 0 30px #ff0; }
+
+#freddy { position: absolute; width: 100%; height: 100%; background: url('https://upload.wikimedia.org/wikipedia/ru/thumb/9/90/Freddy_Fazbear.png/340px-Freddy_Fazbear.png') bottom center/contain no-repeat; opacity: 0; pointer-events: none; transition: opacity 0.1s; filter: drop-shadow(0 0 20px red) brightness(0.8); }
+#freddy.at-door { opacity: 1; }
+#jumpscare-screen { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: url('https://media.tenor.com/images/3f2a58b9f123456789/tenor.gif') center/cover; background-color: red; z-index: 9999; }
+.hidden { display: none !important; }
+
+/* Панель систем */
+#main-power-panel { position: fixed; top: 15%; left: 20%; width: 60%; height: 70%; background: #2a2a2a; border: 15px solid #111; z-index: 400; color: white; text-align: center; box-shadow: 0 0 100px #000, inset 0 0 50px #000; font-family: monospace; }
+.meters-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 50px; }
+.meter { width: 150px; height: 180px; background: #1a1a1a; border: 5px solid #000; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 0; cursor: pointer; box-shadow: inset 0 0 20px #000; }
+.meter:hover { background: #333; }
+.status-light { width: 30px; height: 30px; border-radius: 50%; border: 2px solid #000; }
+.status-light.green { background: #0f0; box-shadow: 0 0 15px #0f0; }
+.status-light.yellow { background: #ff0; box-shadow: 0 0 15px #ff0; }
+.status-light.red { background: #f00; box-shadow: 0 0 15px #f00; }
+.status-light.dead { background: #333; box-shadow: none; }
+.meter-label { font-weight: bold; font-size: 18px; color: #ccc; }
+.close-btn { position: absolute; top: 10px; right: 10px; background: red; color: white; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; }
+.close-btn:hover { background: darkred; }
+
+/* Міні-гра 5х5 */
+#fuse-box-minigame { position: fixed; top: 10%; left: 15%; width: 70%; height: 80%; background: #050505; border: 10px solid #333; z-index: 500; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #0f0; font-family: monospace; box-shadow: 0 0 100px #000; }
+.minigame-layout { display: flex; gap: 50px; margin-top: 20px; align-items: center; }
+#grid-5x5 { display: grid; grid-template-columns: repeat(5, 80px); grid-template-rows: repeat(5, 80px); gap: 5px; background: #111; padding: 10px; border: 2px solid #0f0; }
+.grid-cell { width: 80px; height: 80px; background: #222; border: 1px solid #0f0; display: flex; justify-content: center; align-items: center; font-size: 24px; color: #0a0; }
+.grid-cell img, #current-target img { width: 100%; height: 100%; object-fit: cover; }
+#current-target { width: 120px; height: 120px; border: 3px dashed #0f0; margin-top: 10px; background: #111; }
+#draggable-fuse { width: 100%; height: 100%; background: #0f0; color: #000; display: flex; justify-content: center; align-items: center; cursor: grab; font-weight: bold; }

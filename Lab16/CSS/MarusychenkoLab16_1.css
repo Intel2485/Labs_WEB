@@ -1,0 +1,174 @@
+:root {
+    --su-pink: #ff8cb2;
+    --su-blue: #74b9ff;
+    --su-gold: #fdcb6e;
+    --su-dark: #2c3e50;
+    --font-main: 'Nunito', sans-serif;
+    --font-header: 'Fredoka One', cursive;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-main);
+    background: linear-gradient(180deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 100vh;
+    color: var(--su-dark);
+}
+
+.sky-background {
+    position: fixed;
+    inset: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/clouds.png');
+    opacity: 0.4;
+    z-index: -1;
+    pointer-events: none;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo h1 {
+    font-family: var(--font-header);
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 3px 3px 0 var(--su-pink);
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.star-icon {
+    font-size: 2rem;
+    color: var(--su-gold);
+    text-shadow: 2px 2px 0 #d4a017;
+}
+
+.lab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.lab-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    padding: 25px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border: 3px solid white;
+}
+
+.lab-card h2 {
+    font-family: var(--font-header);
+    font-size: 1.1rem;
+    margin-top: 0;
+    color: var(--su-pink);
+    border-bottom: 2px dashed rgba(255, 140, 178, 0.5);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.flex-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.task-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--su-blue);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background-color: #eee;
+    object-fit: cover;
+}
+
+.task-img:hover {
+    transform: scale(1.1);
+}
+
+.task-link {
+    color: var(--su-blue);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    transition: border-color 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.task-link:hover {
+    border-color: var(--su-blue);
+}
+
+input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    outline: none;
+    font-family: var(--font-main);
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--su-pink);
+}
+
+#demo {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.task-number {
+    background: var(--su-gold);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 0;
+}
+
+.task-number:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.task-node {
+    background: #bdc3c7;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

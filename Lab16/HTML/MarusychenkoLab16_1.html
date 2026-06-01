@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота - Steven Universe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab16_1.css">
+</head>
+<body>
+    <div class="sky-background"></div>
+
+    <header>
+        <div class="logo">
+            <span class="star-icon">★</span>
+            <h1>Лабораторні Завдання</h1>
+            <span class="star-icon">★</span>
+        </div>
+    </header>
+
+    <main class="lab-container">
+        
+        <section class="lab-card">
+            <h2>Завдання 1.1: Рисунки (onclick -> alert src)</h2>
+            <div class="flex-row">
+                <img src="../IMG/steven.png" alt="Стівен" class="task-img">
+                <img src="../IMG/pearl.png" alt="Перлина" class="task-img">
+                <img src="../IMG/garnet.png" alt="Гранат" class="task-img">
+            </div>
+        </section>
+
+        <section class="lab-card">
+            <h2>Завдання 1.2 - 1.4: Посилання (mouseover)</h2>
+            <div class="flex-column">
+                <a href="https://steven-universe.fandom.com" class="task-link">Wiki Енциклопедія</a>
+                <a href="https://rebeccasugar.com" class="task-link">Архів Творців</a>
+                <a href="https://cartoonnetwork.com" class="task-link">Мережа CN</a>
+            </div>
+        </section>
+
+        <section class="lab-card">
+            <h2>Завдання 1.5, 1.6, 1.8: Текстові поля (input)</h2>
+            <div class="flex-column">
+                <input type="text" class="task-input-blur" placeholder="Введіть текст (blur -> вивід нижче)">
+                <input type="text" class="task-input-click" placeholder="Клікніть на мене (один раз)">
+                <input type="text" class="task-input-val" data-length="5" placeholder="Введіть рівно 5 символів (blur)">
+            </div>
+            <p id="demo">Тут з'явиться текст (Завдання 1.5)</p>
+        </section>
+
+        <section class="lab-card">
+            <h2>Завдання 1.7: Параграфи (onclick -> квадрат числа)</h2>
+            <div class="flex-row">
+                <p class="task-number">3</p>
+                <p class="task-number">7</p>
+                <p class="task-number">12</p>
+            </div>
+        </section>
+
+        <section class="lab-card">
+            <h2>Завдання 2.1: Блоки (чергування кольорів)</h2>
+            <div class="flex-row">
+                <div class="task-node">Вузол 1</div>
+                <div class="task-node">Вузол 2</div>
+                <div class="task-node">Вузол 3</div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../JS/MarusychenkoLab16_1.js"></script>
+</body>
+</html>

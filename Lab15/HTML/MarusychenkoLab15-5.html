@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фандом Казкової Русі</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab15-5.css">
+</head>
+<body>
+    
+    <main id="home-view" class="view active">
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Казкова Русь</h1>
+                <p>Інтерактивна енциклопедія сатиричного всесвіту</p>
+            </div>
+        </header>
+
+        <section class="about-series">
+            <h2>Про проект</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p><strong>«Казкова Русь»</strong> — це унікальний анімаційний проект студії «Квартал 95», що виходив з 2012 року. Події розгортаються у вигаданій країні, яка за архітектурою та побутом нагадує часи Київської Русі, але з сучасними політичними реаліями.</p>
+                    <p><strong>Умови створення:</strong> Серіал створювався як гостра політична сатира. Технологія Motion Capture дозволила швидко «оживляти» персонажів, що давало змогу випускати серії за гарячими слідами реальних подій в Україні та світі.</p>
+                </div>
+                <div class="about-stats">
+                    <ul>
+                        <li><strong>Жанр:</strong> Політична комедія</li>
+                        <li><strong>Локації:</strong> Межигір'я, Верховна Рада (Боярська Дума), Вежа Юлі</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="characters-section">
+            <h2>Обери свого героя</h2>
+            <div class="grid-container" id="grid-container">
+                </div>
+        </section>
+    </main>
+
+    <main id="character-view" class="view hidden">
+        <div class="top-nav">
+            <button id="back-btn" class="back-btn">⬅ Назад до списку</button>
+        </div>
+        
+        <div id="character-card-container" class="character-card-layout">
+            <div class="left-col">
+                <div class="main-photo-wrapper">
+                    <img id="char-img" src="" alt="Головне фото">
+                    <div class="play-hint">🔊 Натисни для фрази</div>
+                </div>
+                
+                <div class="carousel-container">
+                    <button class="nav-arrow prev">❮</button>
+                    <div class="carousel-track" id="carousel-track"></div>
+                    <button class="nav-arrow next">❯</button>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <h1 id="char-name"></h1>
+                <div id="char-attributes" class="attributes-list"></div>
+                
+                <div class="bio-box">
+                    <h3>Досьє</h3>
+                    <p id="char-bio"></p>
+                    <p id="char-prototype-info"><strong>Прототип:</strong> <span></span></p>
+                </div>
+
+                <div class="quotes-box">
+                    <h3>Крилаті фрази</h3>
+                    <ul id="char-quotes"></ul>
+                </div>
+            </div>
+        </div>
+        
+        <audio id="char-audio" src=""></audio>
+    </main>
+
+    <script src="../JS/MarusychenkoLab15-5.js"></script>
+</body>
+</html>

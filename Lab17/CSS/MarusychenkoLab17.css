@@ -1,0 +1,518 @@
+body {
+    background: radial-gradient(circle at top, #0c4d24 0%, #031408 100%);
+    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#top-bar {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #d4af37;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+.golden-clock {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 85px;
+    height: 85px;
+    border: 5px solid #d4af37;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff3cc 0%, #b8860b 100%);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 100;
+}
+
+.golden-clock:hover {
+    transform: scale(1.08);
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background: #111;
+    border-radius: 2px;
+    transform: translateX(-50%);
+}
+
+.hour-hand {
+    width: 4px;
+    height: 20px;
+}
+
+.minute-hand {
+    width: 3px;
+    height: 28px;
+}
+
+.second-hand {
+    width: 1.5px;
+    height: 34px;
+    background: #cc0000;
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.casino-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.wheel-3d-wrapper {
+    perspective: 1200px;
+    margin-bottom: 25px;
+}
+
+.wheel-container {
+    width: 440px;
+    height: 440px;
+    position: relative;
+    border-radius: 50%;
+    border: 20px solid #2b1d17;
+    background: #111;
+    transform: rotateX(40deg);
+    box-shadow: 0 40px 70px rgba(0, 0, 0, 0.95), 0 0 0 5px #d4af37;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.wheel-overlay-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 70px rgba(0, 0, 0, 1), inset 0 0 30px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.wheel-sector {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 46px;
+    height: 50%;
+    transform-origin: bottom center;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    text-shadow: 0 2px 4px black;
+}
+
+.wheel-inner-rim {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+    border: 4px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.wheel-turret {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 110px;
+    height: 110px;
+    background: radial-gradient(circle, #f9e29a 0%, #a67c00 60%, #4a3700 100%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9), inset 0 2px 5px rgba(255, 255, 255, 0.8);
+    border: 3px solid #3d2d00;
+    z-index: 4;
+}
+
+.ball {
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle at 30% 30%, #fff 0%, #ccc 60%, #888 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 6px white, 0 5px 10px rgba(0, 0, 0, 0.9);
+    z-index: 50;
+    transform: translate(-50%, -50%);
+}
+
+.table-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1400px;
+    max-width: 800px;
+}
+
+.betting-table-wrapper {
+    background: #063618;
+    padding: 25px;
+    border: 12px solid #2b1d17;
+    border-radius: 12px;
+    box-shadow: 0 35px 60px rgba(0, 0, 0, 0.9), inset 0 0 50px rgba(0, 0, 0, 0.7);
+    transform: rotateX(25deg);
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: 55px repeat(12, 1fr) 60px;
+    grid-template-rows: repeat(5, 55px);
+    gap: 2px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid white;
+}
+
+.cell {
+    background: #063618;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    position: relative;
+    user-select: none;
+    transition: 0.2s;
+}
+
+.cell:hover,
+.cell.ui-droppable-hover {
+    background: #0a5225;
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.8);
+}
+
+.cell.red {
+    background: #cc0000;
+}
+
+.cell.black {
+    background: #1c1c1c;
+}
+
+.cell.zero {
+    background: #008a1a;
+    grid-row: 1 / span 3;
+    grid-column: 1;
+    font-size: 26px;
+}
+
+.cell.doz {
+    grid-column: span 4;
+    font-size: 16px;
+}
+
+.cell.out {
+    grid-column: span 2;
+    font-size: 16px;
+}
+
+.cell.col {
+    grid-row: span 1;
+    font-size: 15px;
+    transform: rotate(-90deg);
+}
+
+.interaction-zones {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.action-zone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.5);
+    text-align: left;
+    font-weight: bold;
+    transition: 0.2s;
+    max-width: 400px;
+}
+
+.exchange-styled {
+    border: 2px solid #d4af37;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+    color: #d4af37;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.exchange-styled.ui-droppable-hover {
+    filter: brightness(1.4);
+    transform: scale(1.02);
+    border-color: white;
+    color: white;
+}
+
+.action-zone span {
+    font-size: 12px;
+    font-weight: normal;
+    opacity: 0.8;
+    color: white;
+}
+
+.zone-icon {
+    font-size: 32px;
+}
+
+.chips-vault {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 25px 35px 15px 35px;
+    border-radius: 20px;
+    border: 2px solid #333;
+    min-height: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.chips-vault.ui-droppable-hover {
+    border-color: #2ecc71;
+    background: rgba(46, 204, 113, 0.2);
+    box-shadow: inset 0 0 20px rgba(46, 204, 113, 0.5);
+}
+
+.bank-stack-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65px;
+    height: 110px;
+    position: relative;
+}
+
+.chip-tower {
+    position: relative;
+    width: 56px;
+    height: 60px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.tower-label {
+    margin-top: auto;
+    font-weight: bold;
+    font-size: 14px;
+    color: #d4af37;
+    background: #000;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.chip {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    border: 4px dashed rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6), inset 0 0 8px rgba(0, 0, 0, 0.4);
+    user-select: none;
+}
+
+.chip-tower .chip {
+    position: absolute;
+    left: 0;
+    cursor: grab;
+    transition: bottom 0.1s;
+}
+
+.chip-tower .chip:active {
+    cursor: grabbing;
+}
+
+.chip-5 {
+    background: radial-gradient(circle, #8e44ad, #5b2c6f);
+}
+
+.chip-10 {
+    background: radial-gradient(circle, #3498db, #1a5276);
+}
+
+.chip-25 {
+    background: radial-gradient(circle, #2ecc71, #186a3b);
+}
+
+.chip-50 {
+    background: radial-gradient(circle, #e67e22, #935116);
+}
+
+.chip-100 {
+    background: radial-gradient(circle, #34495e, #1c2833);
+}
+
+.chip-500 {
+    background: radial-gradient(circle, #f1c40f, #9a7d0a);
+    color: black;
+    border-color: black;
+}
+
+.mini-chip {
+    position: absolute;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px;
+    min-height: 34px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px dashed rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+    cursor: grab;
+    box-sizing: border-box;
+}
+
+.mini-chip:active {
+    cursor: grabbing;
+}
+
+.mini-chip:hover {
+    transform: translate(-50%, -50%) scale(1.15) !important;
+    filter: brightness(1.2);
+    z-index: 100;
+}
+
+.chip-dragging-original {
+    opacity: 0 !important;
+}
+
+body>.chip,
+body>.mini-chip {
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.hint-text {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin-top: 12px;
+    font-size: 15px;
+}
+
+.gold-btn {
+    background: linear-gradient(to bottom, #f9e29a, #d4af37);
+    border: 2px solid #8b6b00;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #111;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition: 0.2s;
+}
+
+.gold-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.gold-btn:disabled {
+    background: #444;
+    border-color: #222;
+    color: #777;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-box {
+    background: #161616;
+    padding: 40px;
+    border-radius: 12px;
+    border: 3px solid #d4af37;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+}
+
+.modal-box h2 {
+    color: #d4af37;
+    margin-top: 0;
+    font-size: 32px;
+}
+
+.modal-box p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}

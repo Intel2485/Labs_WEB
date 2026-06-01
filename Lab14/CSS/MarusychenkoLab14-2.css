@@ -1,0 +1,22 @@
+.chapter-title { 
+    font-size: 24px; 
+    font-weight: bold; 
+    color: rgb(0, 166, 255); 
+    margin-top: 20px; 
+}
+
+.content-text { 
+    font-family: "Times New Roman", serif; 
+    font-size: 16pt; 
+    text-indent: 4%; 
+    text-align: justify; 
+    line-height: 1.5; 
+}
+
+.footnote { 
+    font-size: 12px; 
+    color: gray; 
+    font-style: italic; 
+    border-top: 1px dashed lightgray; 
+    padding-top: 5px; 
+}

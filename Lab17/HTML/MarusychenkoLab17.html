@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Casino Royale - Perfect Engine</title>
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab17.css">
+</head>
+<body>
+
+    <div id="top-bar">
+        <div class="balance-display">БАЛАНС: $<span id="balance-amount">1000</span></div>
+        <div class="current-bet-display">СТАВКА: $<span id="current-bet-amount">0</span></div>
+    </div>
+
+    <div id="analog-clock" class="golden-clock" title="Дізнатися час">
+        <div class="hand hour-hand" id="hour-hand"></div>
+        <div class="hand minute-hand" id="min-hand"></div>
+        <div class="hand second-hand" id="sec-hand"></div>
+        <div class="clock-center"></div>
+    </div>
+
+    <div class="casino-container">
+        
+        <div class="roulette-section">
+            <div class="wheel-3d-wrapper">
+                <div class="wheel-container">
+                    <div id="wheel" class="wheel"></div>
+                    <div class="wheel-overlay-shadow"></div>
+                    <div class="wheel-inner-rim"></div>
+                    <div class="wheel-turret"></div>
+                    <div id="ball" class="ball" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="spin-wheel-btn" class="gold-btn">Запустити рулетку</button>
+            </div>
+        </div>
+
+        <div class="table-section">
+            
+            <div class="betting-table-wrapper">
+                <div class="board-grid" id="betting-board">
+                    </div>
+            </div>
+
+            <div class="interaction-zones">
+                <div id="exchange-zone" class="action-zone exchange-styled">
+                    <div class="zone-icon">🏦</div>
+                    <div>КАСА ОБМІНУ<br><span>(Киньте сюди велику фішку для розміну)</span></div>
+                </div>
+            </div>
+
+            <div id="chips-vault" class="chips-vault">
+                <div class="bank-stack-container" data-value="5">
+                    <div class="chip-tower" id="tower-5"></div>
+                    <div class="tower-label">5</div>
+                </div>
+                <div class="bank-stack-container" data-value="10">
+                    <div class="chip-tower" id="tower-10"></div>
+                    <div class="tower-label">10</div>
+                </div>
+                <div class="bank-stack-container" data-value="25">
+                    <div class="chip-tower" id="tower-25"></div>
+                    <div class="tower-label">25</div>
+                </div>
+                <div class="bank-stack-container" data-value="50">
+                    <div class="chip-tower" id="tower-50"></div>
+                    <div class="tower-label">50</div>
+                </div>
+                <div class="bank-stack-container" data-value="100">
+                    <div class="chip-tower" id="tower-100"></div>
+                    <div class="tower-label">100</div>
+                </div>
+                <div class="bank-stack-container" data-value="500">
+                    <div class="chip-tower" id="tower-500"></div>
+                    <div class="tower-label">500</div>
+                </div>
+            </div>
+            <p class="hint-text">Перетягніть фішку на стіл. Щоб скасувати ставку, перетягніть її зі столу назад до фішок.</p>
+            
+        </div>
+    </div>
+
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-box">
+            <h2 id="modal-title">Результат</h2>
+            <p id="modal-text"></p>
+            <button id="modal-ok-btn" class="gold-btn">Продовжити</button>
+        </div>
+    </div>
+
+    <div id="win-animation-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 99999; justify-content: center; align-items: center; flex-direction: column;">
+        <h1 id="win-animation-text" style="color: #d4af37; font-size: 70px; text-shadow: 0 0 30px #d4af37, 0 0 10px #fff; margin-bottom: 20px; text-transform: uppercase; z-index: 2;">ВЕЛИКИЙ ВИГРАШ!</h1>
+    
+        <img id="win-animation-gif" src="" alt="Win Animation" style="max-width: 80%; max-height: 70%; z-index: 1; border-radius: 20px; box-shadow: 0 0 60px rgba(212,175,55,0.4);">
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="../JS/MarusychenkoLab17.js"></script>
+</body>
+</html>

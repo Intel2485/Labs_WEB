@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steven Universe — Fusion Chamber</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/MarusychenkoLab16.css">
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+
+    <div class="sky-background"></div>
+
+    <header>
+        <div class="logo">
+            <span class="star-icon">★</span>
+            <h1>Fusion Chamber</h1>
+            <span class="star-icon">★</span>
+        </div>
+        <nav class="temple-archives">
+            <a href="https://steven-universe.fandom.com" class="archive-link">Wiki Енциклопедія</a>
+            <a href="https://rebeccasugar.com" class="archive-link">Архів Творців</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="roster-section">
+            <h2 class="section-title">Бібліотека Самоцвітів</h2>
+            <div class="gem-grid" id="roster-grid"></div>
+        </section>
+
+        <section id="fusion-temple">
+            <div class="temple-heart">
+                <div class="fusion-altar" id="stage-grid"></div>
+                <div class="fusion-controls">
+                    <button id="fuse-btn" class="star-button" disabled>Злити!</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <audio id="sound-fusion" src="../SOUND/wow-anime-effect.mp3" preload="auto"></audio>
+    <audio id="sound-error" src="../SOUND/low-quack.mp3" preload="auto"></audio>
+
+    <script src="../JS/data.js"></script>
+    <script src="../JS/MarusychenkoLab16.js"></script>
+</body>
+</html>
