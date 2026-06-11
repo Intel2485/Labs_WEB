@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. Robotics | База Даних: Я, робот</title>
+    <link rel="stylesheet" href="../CSS/Lab25_1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Manrope:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Підключення футуристичних шрифтів -->
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;600&family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <svg style="display: none; position: absolute; width: 0; height: 0" xmlns="http://www.w3.org/2000/svg">
+        <filter id="glass-distortion" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+            <feTurbulence type="fractalNoise" baseFrequency="0.005 0.005" numOctaves="2" seed="17" result="turbulence"/>
+            <feComponentTransfer in="turbulence" result="mapped">
+                <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+                <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+                <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+            </feComponentTransfer>
+            <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+            <feSpecularLighting in="softMap" surfaceScale="5" specularConstant="1" specularExponent="100" lighting-color="white" result="specLight">
+                <fePointLight x="-200" y="-200" z="300" />
+            </feSpecularLighting>
+            <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+            <feDisplacementMap in="SourceGraphic" in2="softMap" scale="50" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+    </svg>
+
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="sys-header">Внутрішня мережа USR // Рівень доступу: АДМІНІСТРАТОР</div>
+
+    <div class="liquid-glass draggable" style="top: 10%; left: 5%;">
+        <div class="content-wrapper">
+            <div class="poster-container">
+    <a href="https://uk.wikipedia.org/wiki/Я,_робот_(фільм)" target="_blank" rel="noopener noreferrer">
+        <img src="../IMG/Robot.jpg" alt="Афіша" class="poster">
+    </a>
+</div>
+            <div class="info-container">
+                <h1>Я, робот</h1>
+                <h2>Секретний архів</h2>
+                <ul>
+                    <li><strong>Рік випуску:</strong> 2004</li>
+                    <li><strong>Режисер:</strong> Алекс Прояс</li>
+                    <li><strong>Жанр:</strong> Фантастика, Детектив</li>
+                    <li><strong>Код інциденту:</strong> NS5-2035</li>
+                </ul>
+                <button class="cyber-btn" onclick="alert('Запуск діагностики...')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    Сканувати систему
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="liquid-glass draggable" style="top: 15%; left: 55%; max-width: 600px;">
+        <div class="content-wrapper text-block">
+            <h2>Протокол розслідування</h2>
+            <p>Детектив Дел Спунер розслідує загадкове падіння доктора Леннінга з вікна штаб-квартири U.S. Robotics. Головний підозрюваний — експериментальний робот моделі NS-5 на ім'я "Санні", який, ймовірно, здатний порушувати Три закони робототехніки.</p>
+            
+            <h2 style="margin-top: 20px;">Специфікація NS-5</h2>
+            <p><strong>Біомеханіка:</strong> Посилені сервоприводи передпліччя, здатні витримати екстремальні навантаження — ідеально адаптовані для механічного зчеплення, наприклад, для армрестлінгу чи підйому важкої техніки.</p>
+            <p><strong>Модуль охолодження:</strong> Застосовано рідкометалевий термоінтерфейс нового покоління. Після технічного обслуговування він знижує робочу температуру позитронного мозку на 15 градусів під час пікових системних навантажень.</p>
+        </div>
+    </div>
+
+    <div class="liquid-glass draggable gallery-panel" style="top: 55%; left: 10%;">
+        <div class="content-wrapper">
+            <h2>Візуальні докази</h2>
+            <div class="gallery">
+                <img src="../IMG/start.jpg" alt="NS-5" class="glass-photo">
+                <img src="../IMG/w1500_206029.jpg" alt="Спунер" class="glass-photo">
+                <img src="../IMG/w1500_48968536.jpg" alt="VIKI" class="glass-photo">
+                <img src="../IMG/w1500_48968553.jpg" alt="Санні" class="glass-photo">
+                <img src="../IMG/w1500_51719561.jpg" alt="Чікаго 2035" class="glass-photo">
+                <img src="../IMG/w1500_51719562.jpg" alt="Лабораторія" class="glass-photo">
+            </div>
+        </div>
+    </div>
+
+    <!-- ПАНЕЛЬ 4: ДІАГНОСТИКА (DRAGGABLE) -->
+<div class="liquid-glass draggable" style="top: 10%; left: 65%; width: 350px;">
+    <div class="content-wrapper text-block">
+        <h2>Системна телеметрія</h2>
+        
+        <div class="diagnostic-item">
+            <div class="diag-header">
+                <span>Позитронний мозок</span>
+                <span id="cpuTemp" style="color: var(--neon-cyan);">45°C</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 45%; background: var(--neon-cyan);"></div>
+            </div>
+        </div>
+
+        <div class="diagnostic-item">
+            <div class="diag-header">
+                <span>Термоінтерфейс (скидання під навантаженням)</span>
+                <span style="color: var(--neon-green);">Δ -15°C</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 85%; background: var(--neon-green);"></div>
+            </div>
+        </div>
+
+        <div class="diagnostic-item">
+            <div class="diag-header">
+                <span>Тест сили зчеплення (кінематика руки)</span>
+                <span id="gripForce" style="color: var(--neon-purple);">98%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 98%; background: var(--neon-purple);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ПАНЕЛЬ 5: ТЕРМІНАЛ (DRAGGABLE) -->
+<div class="liquid-glass draggable" style="top: 75%; left: 55%; width: 450px;">
+    <div class="content-wrapper text-block">
+        <h2>Термінал USR</h2>
+        <div class="terminal-window" id="terminalOutput">
+            <!-- Текст буде генеруватися через JS -->
+        </div>
+    </div>
+</div>
+
+    <script src="../JS/Lab25_1.js"></script>
+</body>
+</html>

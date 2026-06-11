@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #1e1e2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+.calendar-widget {
+    background: #2a2a40;
+    width: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cal-header {
+    background: #ff4757;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cal-body {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.cal-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    background: #3742fa;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.action-btn:hover {
+    background: #5352ed;
+    transform: translateY(-2px);
+}
+
+.action-btn:active {
+    transform: translateY(0);
+}
+
+.result-area {
+    margin-top: 30px;
+    background: #1e1e2f;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px dashed #474759;
+}
+
+.res-label {
+    font-size: 12px;
+    color: #a4b0be;
+    margin-bottom: 5px;
+}
+
+.res-value {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2ed573;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-box {
+    background: #2a2a40;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.3s;
+}
+
+.modal-overlay.hidden .modal-box {
+    transform: translateY(20px);
+}
+
+.modal-header {
+    background: #1e1e2f;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.modal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.modal-dot.red {
+    background: #ff4757;
+}
+
+.modal-dot.yellow {
+    background: #ffa502;
+}
+
+.modal-dot.green {
+    background: #2ed573;
+}
+
+.modal-title {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #a4b0be;
+    font-weight: 600;
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#modalInput {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #474759;
+    background: #1e1e2f;
+    color: white;
+    font-size: 16px;
+    outline: none;
+}
+
+#modalInput:focus {
+    border-color: #3742fa;
+}
+
+.modal-actions {
+    padding: 15px 20px;
+    background: #1e1e2f;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#modalSubmit {
+    background: #2ed573;
+    color: #1e1e2f;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#modalSubmit:hover {
+    background: #7bed9f;
+}

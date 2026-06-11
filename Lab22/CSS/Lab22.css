@@ -1,0 +1,326 @@
+:root {
+    --pip-green: #14fd11;
+    --pip-dim: rgba(20, 253, 17, 0.5);
+    --pip-glow: 0 0 4px #14fd11, 0 0 8px rgba(20, 253, 17, 0.4);
+    --bg-dark: #051005;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: #020502;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--pip-green);
+}
+
+#wasteland {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at center, #1a2a1a, #050a05);
+}
+
+.casing {
+    background: #2b3027;
+    border: 4px solid #151a14;
+    border-radius: 20px;
+    padding: 20px;
+    width: 800px;
+    box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.8), inset 0 2px 2px #4a5445;
+}
+
+.device-label {
+    text-align: center;
+    color: #151a14;
+    font-size: 14px;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.main-row {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    gap: 20px;
+}
+
+.bezel {
+    background: #000;
+    padding: 15px;
+    border-radius: 25px;
+    border: 2px solid #111;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
+}
+
+.screen {
+    background: var(--bg-dark);
+    height: 480px;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9), inset 0 0 15px var(--pip-dim);
+}
+
+.pip-os {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 15px;
+    position: relative;
+    z-index: 10;
+}
+
+.pip-nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    border-bottom: 2px solid var(--pip-green);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.pip-nav li {
+    opacity: 0.5;
+    text-shadow: var(--pip-glow);
+}
+
+.pip-nav li.active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+.terminal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.t-header {
+    font-size: 18px;
+    border-bottom: 1px dashed var(--pip-dim);
+    margin-bottom: 10px;
+    text-shadow: var(--pip-glow);
+}
+
+.t-log {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 20px;
+    line-height: 1.2;
+    text-shadow: var(--pip-glow);
+    scrollbar-width: none;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.t-input-row {
+    display: flex;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.t-input-row input {
+    background: transparent;
+    border: none;
+    color: var(--pip-green);
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    width: 100%;
+    text-shadow: var(--pip-glow);
+    outline: none;
+}
+
+.t-input-row input:disabled {
+    opacity: 0.5;
+}
+
+.pip-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--pip-green);
+    padding-top: 5px;
+    font-size: 18px;
+    text-shadow: var(--pip-glow);
+}
+
+.scanline {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: rgba(20, 253, 17, 0.1);
+    animation: scan 6s linear infinite;
+    z-index: 20;
+    pointer-events: none;
+}
+
+@keyframes scan {
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%;
+    }
+}
+
+.noise-layer {
+    position: absolute;
+    inset: 0;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0;
+    z-index: 21;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.noise-layer.active {
+    opacity: 0.15;
+    animation: noise 0.1s infinite;
+    background-color: var(--pip-green);
+}
+
+@keyframes noise {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.knob-ring {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #333;
+    border: 4px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.knob-ring:active {
+    transform: scale(0.95) rotate(15deg);
+}
+
+.knob-inner {
+    width: 50px;
+    height: 50px;
+    background: #111;
+    border-radius: 50%;
+}
+
+.knob-num {
+    font-size: 30px;
+    text-shadow: var(--pip-glow);
+    margin-top: 10px;
+    border: 1px solid var(--pip-green);
+    padding: 5px 15px;
+}
+
+.exec-main {
+    background: #3a4535;
+    color: #a1b596;
+    border: 2px solid #111;
+    padding: 15px;
+    width: 100%;
+    font-family: 'VT323';
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #111;
+    border-radius: 10px;
+}
+
+.exec-main:active {
+    transform: translateY(5px);
+    box-shadow: 0 0 0 #111;
+    color: var(--pip-green);
+}
+
+.btn-lbl {
+    text-align: center;
+    color: #111;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.knob-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.led-ring {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 130px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.led {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #0a4009;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    margin: -4px 0 0 -4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+}
+
+.led.active {
+    background: var(--pip-green);
+    box-shadow: 0 0 8px var(--pip-green), 0 0 15px rgba(20, 253, 17, 0.8);
+}
+
+.knob-ring {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.knob-pointer {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 24px;
+    background: #4a5445;
+    border-radius: 4px 4px 0 0;
+    border: 2px solid #111;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}

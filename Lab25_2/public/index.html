@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторне заняття 25</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+
+        .nav-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-title {
+            font-family: 'Pirata One', cursive;
+            font-size: 3rem;
+            color: #3b1f05;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .nav-subtitle {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 1.1rem;
+            color: #6b3e1a;
+            text-align: center;
+            text-indent: 0;
+            margin: 0;
+        }
+
+        .nav-cards {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 252, 244, 0.85);
+            border: 2px solid #6b3e1a;
+            border-radius: 6px;
+            padding: 32px 40px;
+            text-decoration: none;
+            color: #2c1f0e;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            min-width: 220px;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+            color: #2c1f0e;
+            text-decoration: none;
+        }
+
+        .nav-card-icon {
+            font-size: 3.5rem;
+        }
+
+        .nav-card-label {
+            font-family: 'Pirata One', cursive;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .nav-card-route {
+            font-family: 'Crimson Text', monospace;
+            font-size: 0.9rem;
+            color: #1a3a6b;
+            letter-spacing: 1px;
+        }
+
+        .nav-footer {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 13px;
+            color: #8b5a2b;
+            text-align: center;
+            text-indent: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="rope-top"></div>
+
+    <div class="nav-page">
+        <div>
+            <h1 class="nav-title">⚓ Лабораторне заняття 25 ⚓</h1>
+            <p class="nav-subtitle">Веб-програмування · Node.js + Express.js</p>
+        </div>
+
+        <div class="nav-cards">
+            <a href="/book" class="nav-card">
+                <span class="nav-card-icon">📖</span>
+                <span class="nav-card-label">Моя улюблена книга</span>
+                <span class="nav-card-route">GET /book</span>
+            </a>
+            <a href="/film" class="nav-card">
+                <span class="nav-card-icon">🎬</span>
+                <span class="nav-card-label">Мій улюблений фільм</span>
+                <span class="nav-card-route">GET /film</span>
+            </a>
+        </div>
+
+        <p class="nav-footer">Машіро · Express.js v4 · Node.js</p>
+    </div>
+
+    <div class="rope-bottom"></div>
+</body>
+</html>

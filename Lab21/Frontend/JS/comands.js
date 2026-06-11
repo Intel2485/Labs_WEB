@@ -18,7 +18,7 @@ document.getElementById('calcBtn').addEventListener('click', async () => {
         if (response.ok) {
             resultDiv.textContent = data.message;
             resultDiv.style.color = '#4caf50';
-            // Плавна поява результату
+
             resultDiv.style.opacity = '1';
         } else {
             resultDiv.textContent = 'Помилка: ' + data.error;

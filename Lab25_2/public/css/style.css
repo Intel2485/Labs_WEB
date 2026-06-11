@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #d6d0c4;
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 17px;
+    color: #2c1f0e;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+}
+
+.rope-top,
+.rope-bottom {
+    height: 18px;
+    background: repeating-linear-gradient(
+        90deg,
+        #6b3e1a 0px, #6b3e1a 6px,
+        #8b5a2b 6px, #8b5a2b 12px,
+        #5a2f0f 12px, #5a2f0f 18px,
+        #8b5a2b 18px, #8b5a2b 24px
+    );
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.page-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px 20px;
+    border-bottom: 3px solid #5a2f0f;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-family: 'Pirata One', 'Crimson Text', cursive;
+    font-size: 2.6rem;
+    color: #3b1f05;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.25);
+}
+
+.student-name {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 14px;
+    color: #6b3e1a;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-indent: 0;
+    margin-bottom: 0;
+}
+
+.header-emblem {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.book-section {
+    margin-bottom: 30px;
+}
+
+.book-divider {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #6b3e1a;
+    padding: 16px 0;
+    letter-spacing: 10px;
+    border-top: 3px solid #5a2f0f;
+    border-bottom: 3px solid #5a2f0f;
+    margin: 20px 0;
+    background: rgba(90, 47, 15, 0.06);
+}
+
+.block {
+    background: rgba(255, 252, 244, 0.75);
+    border-radius: 4px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+    border-left: 5px solid #1a3a6b;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.divider {
+    border: none;
+    border-bottom: 5px solid #1a3a6b;
+    margin: 14px 0;
+    border-radius: 2px;
+}
+
+h4.section-heading {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 14px;
+    color: #1a6b2a;
+    text-align: right;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2.contents-heading {
+    font-family: 'Pirata One', 'Crimson Text', cursive;
+    font-size: 1.5rem;
+    color: #c0001a;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    letter-spacing: 3px;
+}
+
+.chapter-title {
+    font-family: 'Pirata One', 'Crimson Text', cursive;
+    font-size: 1.2rem;
+    color: #3b1f05;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px dashed #8b5a2b;
+}
+
+.book-card,
+.author-card {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.book-cover-area {
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.book-cover {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border: 2px solid #6b3e1a;
+    display: block;
+    background-color: #c8a97a;
+    border-radius: 2px;
+}
+
+.img-caption {
+    font-size: 12px;
+    color: #8b5a2b;
+    margin-top: 6px;
+    text-align: center;
+    text-indent: 0;
+    font-style: italic;
+}
+
+.book-details {
+    flex: 1;
+}
+
+p {
+    text-indent: 12px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    line-height: 1.65;
+    font-size: 16px;
+}
+
+.book-details p,
+.author-card p {
+    margin-left: 0;
+    text-indent: 0;
+}
+
+.author-fio {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2c1f0e;
+    margin-bottom: 2px;
+}
+
+.author-years {
+    font-size: 14px;
+    color: #6b3e1a;
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.toc {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 20px;
+}
+
+a {
+    color: #1a3a6b;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #c0001a;
+    text-decoration: none;
+}
+
+.toc-link {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 15px;
+    color: #2c4a7c;
+    padding: 3px 0;
+}
+
+.toc-link:hover {
+    color: #c0001a;
+    text-decoration: none;
+}
+
+strong {
+    font-weight: 600;
+    color: #2c1f0e;
+}
+
+.chapter-content {
+    background: rgba(255, 250, 235, 0.85);
+    border-left-color: #8b5a2b;
+}
+
+.chapter-content p {
+    margin-left: 15px;
+    text-indent: 12px;
+    margin-bottom: 15px;
+}

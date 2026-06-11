@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pip-Boy 3000 Mark IV</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+    <link rel="stylesheet" href="../CSS/Lab22.css">
+</head>
+<body>
+    <div id="wasteland"></div>
+ 
+    <div class="casing">
+        <div class="device-label">◈ PIP-BOY 3000 MARK IV ◈ ROBCO INDUSTRIES ◈</div>
+        
+        <div class="main-row">
+            <div class="bezel">
+                <div class="screen" id="crt-screen">
+                    <div class="scanline"></div>
+                    <div class="flicker"></div>
+                    <div class="noise-layer" id="noiseLayer"></div>
+                    
+                    <div class="pip-os">
+                        <div class="pip-header">
+                            <ul class="pip-nav">
+                                <li>STAT</li>
+                                <li>INV</li>
+                                <li class="active">DATA</li>
+                                <li>MAP</li>
+                                <li>RADIO</li>
+                            </ul>
+                        </div>
+
+                        <div class="pip-body terminal">
+                            <div class="t-header">
+                                ROBCO UNIFIED OS | <span id="current-task">MODULE NOT SELECTED</span>
+                            </div>
+                            <div class="t-log" id="output">
+                                <div>> Система готова...</div>
+                                <div>> Оберіть модуль за допомогою селектора.</div>
+                            </div>
+                            <div class="t-input-row">
+                                <span>> </span>
+                                <input id="userInput" placeholder="Очікування вибору..." autocomplete="off" disabled>
+                            </div>
+                        </div>
+
+                        <div class="pip-footer">
+                            <div class="stat-bar">HP <span>████████░░</span> 80/100</div>
+                            <div class="stat-bar">AP <span>██████████</span> 100/100</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+            <div class="side">
+                <div class="knob-wrap">
+    <div class="led-ring" id="ledRing"></div>
+    <div class="knob-ring" id="knob" title="Натисніть для вибору завдання">
+        <div class="knob-pointer"></div>
+        <div class="knob-inner"></div>
+    </div>
+    <div class="knob-label">SELECTOR</div>
+    <div class="knob-num" id="knobNum">--</div>
+</div>
+                <div>
+                    <button class="exec-main" id="execBtn">EXECUTE<br>◢◣</button>
+                    <div class="btn-lbl">RUN MODULE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="../JS/Lab22.js"></script>
+</body>
+</html>

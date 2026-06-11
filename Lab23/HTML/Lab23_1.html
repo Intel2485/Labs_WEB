@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 1: Календар-Словник</title>
+    <link rel="stylesheet" href="../CSS/Lab23_1.css">
+</head>
+
+<body>
+
+    <div class="calendar-widget">
+        <div class="cal-header">
+            <div class="cal-month" id="calMonth">Task 1</div>
+            <div class="cal-year" id="calYear">Lab 23</div>
+        </div>
+        <div class="cal-body">
+            <div class="cal-icon">📅</div>
+            <button id="startBtn" class="action-btn">Обрати дату</button>
+
+            <div class="result-area">
+                <div id="resultLabel" class="res-label">Результат:</div>
+                <div id="resultValue" class="res-value">--</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="customModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="modal-dot red"></span>
+                <span class="modal-dot yellow"></span>
+                <span class="modal-dot green"></span>
+                <span class="modal-title">Системне повідомлення</span>
+            </div>
+            <div class="modal-content">
+                <p id="modalText">Текст запиту...</p>
+                <input type="text" id="modalInput" autocomplete="off" placeholder="Введіть значення...">
+            </div>
+            <div class="modal-actions">
+                <button id="modalSubmit">Підтвердити</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/Lab23_1.js"></script>
+</body>
+
+</html>
